@@ -1,5 +1,7 @@
 import React from 'react';
 import { Route, NavLink } from 'react-router-dom';
+import AboutPage from './components/AboutPage';
+import Footer from './components/Footer';
 import './App.css';
 
 const App = () => (
@@ -12,10 +14,13 @@ const App = () => (
 
     <Route path="/" />
     <Route path="/dashboard" />
-    <Route path="/about" />
+    <Route path="/about" component={AboutPage} />
     <Route path="/contact" />
     <Route path="/login" />
     <Route path="/sign-up" />
+
+    <Footer />
+
   </div>
 );
 
