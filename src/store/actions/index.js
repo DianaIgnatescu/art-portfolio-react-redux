@@ -24,15 +24,24 @@ export const DELETE_POST = 'DELETE_POST';
 export const DELETE_POST_SUCCESS = 'DELETE_POST_SUCCESS';
 export const DELETE_POST_FAILURE = 'DELETE_POST_FAILURE';
 
+export const LOGOUT = 'LOGOUT';
+
 
 // Synchronous action creators
 
-export const loginSuccess = token => ({
-  type: LOGIN_SUCCESS,
-  payload: {
-    token,
-  },
+export const logout = () => ({
+  type: LOGOUT,
 });
+
+export const loginSuccess = (token) => {
+  localStorage.setItem('token', token);
+  return {
+    type: LOGIN_SUCCESS,
+    payload: {
+      token,
+    },
+  };
+};
 
 export const loginFailure = error => ({
   type: LOGIN_FAILURE,
@@ -222,7 +231,9 @@ export const updatePost = (id, postName, imageUrl, description) => async (dispat
     const result = await fetch(`http://localhost:5000/api/posts/${id}`, config);
     const jsonResult = await result.json();
     if (result.ok) {
-      const newPost = { ...updatedPost, id, upvotes: 0, userId: 0 };
+      const newPost = {
+        ...updatedPost, id, upvotes: 0, userId: 0,
+      };
       dispatch(updatePostSuccess(newPost));
     } else {
       throw new Error(jsonResult.message);
