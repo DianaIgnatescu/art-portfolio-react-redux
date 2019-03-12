@@ -1,11 +1,16 @@
 import React from 'react';
+// eslint-disable-next-line import/no-extraneous-dependencies
+import PropTypes from 'prop-types';
+import { Redirect } from 'react-router-dom';
 
 
-const SignUp = () => {
+const SignUp = ({ loggedIn }) => {
+  if (loggedIn) {
+    return <Redirect to="/dashboard" />;
+  }
   return (
     <div className="sign-up-wrapper">
       <div className="sign-up">
-        
         <form className="sign-up-form">
           <h2>Art Portolio</h2>
           <p>Email</p>
@@ -21,7 +26,6 @@ const SignUp = () => {
               <button type="button">Sign up with Google</button>
             </div>
           </div>
-
           <p className="agreement">
             By continuing, you agree to Art Portolio's <span>Terms of Servicee</span>, <span>Privacy</span>, and <span>Cookie Use</span>
           </p>
@@ -29,6 +33,10 @@ const SignUp = () => {
       </div>
     </div>
   );
+};
+
+SignUp.propTypes = {
+  loggedIn: PropTypes.bool.isRequired,
 };
 
 export default SignUp;
