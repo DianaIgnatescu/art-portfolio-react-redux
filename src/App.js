@@ -1,27 +1,28 @@
 import React from 'react';
-import { Route, NavLink } from 'react-router-dom';
+import { Route, NavLink, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import NavBar from './components/NavBar';
+import Login from './components/Login';
+import SignUp from './components/SignUp';
+import HomePage from './components/HomePage';
+import Dashboard from './components/Dashboard';
 import AboutPage from './components/AboutPage';
+import ContactPage from './components/ContactPage';
 import Footer from './components/Footer';
 import './App.css';
 
-const App = () => (
+const App = ({ state }) => (
   <div className="App">
-    <NavLink to="/">Home</NavLink>
-    <NavLink to="/about">About</NavLink>
-    <NavLink to="/contact">Contact</NavLink>
-    <NavLink to="/sign-up">Sign Up</NavLink>
-    <NavLink to="/login">Login</NavLink>
-
-    <Route path="/" />
-    <Route path="/dashboard" />
+    <NavBar />
+    <Route exact path="/" render={props => <HomePage {...props} posts={state.posts} />} />
+    {/* <Route exact path="/" component={HomePage} /> */}
+    <Route path="/dashboard" render={props => <Dashboard {...props} posts={state.posts} />} />
     <Route path="/about" component={AboutPage} />
-    <Route path="/contact" />
-    <Route path="/login" />
-    <Route path="/sign-up" />
-
+    <Route path="/contact" component={ContactPage} />
+    <Route path="/login" render={props => <Login {...props} posts={state.authToken} />} />
+    <Route path="/sign-up" component={SignUp} />
     <Footer />
-
   </div>
 );
-
-export default App;
+const mapStateToProps = state => ({ state });
+export default withRouter(connect(mapStateToProps)(App));
