@@ -38,7 +38,7 @@ export const makePostModalEditable = () => ({
   type: MAKE_POST_MODAL_EDITABLE,
 });
 
-export const makePostModalUneditable =() => ({
+export const makePostModalUneditable = () => ({
   type: MAKE_POST_MODAL_UNEDITABLE,
 });
 
