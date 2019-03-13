@@ -47,8 +47,6 @@ Post.propTypes = {
   imageUrl: PropTypes.string.isRequired,
   upvotes: PropTypes.number.isRequired,
   description: PropTypes.string.isRequired,
-  deletePost: PropTypes.func.isRequired,
-  updatePost: PropTypes.func.isRequired,
   showPostModal: PropTypes.func.isRequired,
 };
 
