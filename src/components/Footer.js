@@ -9,13 +9,12 @@ const Footer = () => (
         <p>
             We are aenean vulputate nisl arcu, non consequat risus vulputate sed. Nulla eu sapien
             condimentum nisi aliquet sodales non et diam. Duis blandit nunc semper rutrum congue.
-            Phasellus sed lacus ut odio vehicula varius. Etia iaculis feugiat tortor ac ornare.
-            great design.
+            Phasellus sed lacus ut odio vehicula varius.
         </p>
         <div className="footer-icons fa-lg">
           <a href="#"><i className="fab fa-facebook fa-lg" /></a>
-          <i className="fab fa-twitter fa-lg" />
-          <i className="fab fa-instagram fa-lg" />
+          <a href="#"><i className="fab fa-twitter fa-lg" /></a>
+          <a href="#"><i className="fab fa-instagram fa-lg" /></a>
         </div>
       </div>
       <div className="footer-links">
@@ -29,19 +28,15 @@ const Footer = () => (
       <div className="footer-contact">
         <h4>Say hello to us</h4>
         <p>
-          <i className="fas fa-map-marked fa-lg" />
+          <i className="fas fa-map-marker-alt" />
 County, Street name - number
         </p>
         <p>
-          <i className="fas fa-envelope fa-lg" />
+          <i className="far fa-envelope" />
           <span>hello@artportolio.com</span>
         </p>
         <p>
-          <i className="fas fa-phone-square fa-lg" />
-032 267 899 442
-        </p>
-        <p>
-          <i className="fas fa-phone-square fa-lg" />
+          <i className="fas fa-phone" />
 032 267 899 442
         </p>
       </div>
