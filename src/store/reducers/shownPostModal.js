@@ -1,6 +1,6 @@
 import {
-  SHOW_POST_MODAL,
-  HIDE_POST_MODAL, MAKE_POST_MODAL_EDITABLE, MAKE_POST_MODAL_UNEDITABLE, UPDATE_POST_SUCCESS,
+  SHOW_POST_MODAL, HIDE_POST_MODAL, MAKE_POST_MODAL_EDITABLE, MAKE_POST_MODAL_UNEDITABLE,
+  UPDATE_POST_SUCCESS, DELETE_POST_SUCCESS,
 } from '../actions';
 
 const initialState = { id: false, isEditable: false };
@@ -17,6 +17,8 @@ const shownPostModal = (state = initialState, action) => {
       return { ...state, isEditable: false };
     case UPDATE_POST_SUCCESS:
       return { ...state, isEditable: false };
+    case DELETE_POST_SUCCESS:
+      return { ...state, isEditable: false, id: false };
     default:
       return state;
   }
