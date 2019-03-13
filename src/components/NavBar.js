@@ -1,15 +1,15 @@
 import React from 'react';
+import { Link, NavLink } from 'react-router-dom';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import PropTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
 
 const Navbar = ({ loggedIn }) => (
   <div className="navbar-wrapper">
     <div className="navigation">
-      <h1>Art Portolio </h1>
+      <Link to="/home" className="logo">Art Portolio </Link>
       <nav>
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/dashboard">Dashboard</NavLink>
+        <NavLink to="/home">Home</NavLink>
+        {/* <NavLink to="/dashboard">Dashboard</NavLink> */}
         <NavLink to="/about">About</NavLink>
         <NavLink to="/contact">Contact</NavLink>
         {!loggedIn ? (
