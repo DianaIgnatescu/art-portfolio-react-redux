@@ -15,13 +15,28 @@ const Post = (props) => {
 
   return (
     <div className="post">
-      <button type="button" onClick={handleShowModalClick(id, showPostModal)}>View</button>
-      <img src={imageUrl} alt={description} />
-      <p>
-        {upvotes}
-        {' '}
+      <button type="button" onClick={handleShowModalClick(id, showPostModal)}>
+        <i
+          className="fas fa-expand-arrows-alt"
+        />
+      </button>
+      <div className="image-container">
+        <img src={imageUrl} alt={description} />
+      </div>
+
+      <div className="post-reactions">
+        <p>
+          <i className="far fa-heart" />
+          {upvotes}
+          {' '}
 Likes
-      </p>
+        </p>
+        <p>
+          <i className="fas fa-eye" />
+Views
+        </p>
+      </div>
+
     </div>
 
   );
