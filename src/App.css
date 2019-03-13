@@ -467,19 +467,34 @@ button.orange.careers {
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
-  padding: 50px 0;
+  padding: 20px 0;
 }
 
 .footer h4 {
   color: #676D85;
+  text-transform: uppercase;
+  margin: 0 0 10px;
 }
 
 .footer p {
   color: #676D85;
+  font-size: 1.6rem;
+  line-height: 2rem;
+  margin: 0;
 }
 
 .footer-info {
   max-width: 40%;
+}
+
+.footer-info i {
+  color: #676D85;
+  padding: 15px 5px 0;
+}
+
+.footer-info i:hover {
+  color: #E19870;
+  transition: all 0.5s ease;
 }
 
 .footer-links {
@@ -490,15 +505,13 @@ button.orange.careers {
 
 
 .footer-links a {
-  padding: 5px 0;
+  padding-bottom: 5px;
   text-decoration: none;
   color: #676D85;
-  /* color: orange; */
 }
 
 .footer-links a:hover {
-  padding: 5px 0;
-  text-decoration: underline;
+  transition: all 0.5s ease;
   color: #E19870;
 }
 
@@ -506,13 +519,29 @@ button.orange.careers {
   max-width: 30%;
 }
 
+.footer-contact p {
+  padding-bottom: 5px;
+}
+
+.footer-contact i {
+  padding-right: 7px;
+}
+
+.footer-contact span:hover {
+  color: #E19870;
+  text-decoration: underline;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
 p.copyright {
   margin: 0 auto;
   padding: 30px 0;
   text-align: center;
   max-width: 800px;
-  border-top: 1px solid grey;
+  border-top: 1px solid #676D85;
   color: #676D85;
+  font-size: 1.6rem;
 }
 
 /* =====NAVBAR ====== */
@@ -537,7 +566,8 @@ p.copyright {
 
 .navigation a {
   font-family: 'Roboto';
-  font-size: 1.8rem;
+  font-size: 1.6rem;
+  text-transform: uppercase;
 }
 
 .navigation h1 {
@@ -561,7 +591,7 @@ nav.register {
 
 .register a {
   padding-right: 20px;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   font-family: 'Roboto', sans-serif;
 }
 
@@ -706,12 +736,48 @@ button.login-button:hover {
 
 }
 
+.post button {
+ height: 30px;
+  background: none;
+  width: 50px;
+  font-size: 1.3rem;
+  text-align: center;
+  margin: 0;
+  position: relative;
+  left: 79%;
+}
+
+/*.post button:hover{*/
+  /*visibility: visible;*/
+  /*background: red;*/
+  /*color: black;*/
+/*}*/
+
+.post-reactions {
+  display: flex;
+  font-size: 1.3rem;
+  justify-content: space-between;
+}
+
 .post {
   width: 230px;
   background: white;
   margin: 10px;
   border-radius: 3px;
   height: 230px;
+}
+
+.image-container {
+  height: 300px;
+  width: 100%;
+  /*border: 2px solid yellow;*/
+}
+
+.image-container img {
+  object-fit: cover;
+  object-position: top;
+  width: 100%;
+  height: 100%;
 }
 .post img {
   width: 230px;
@@ -817,19 +883,19 @@ button.edit {
 .post-modal-container {
   position: fixed;
   background: white;
-  width: 80%;
+  width: 50%;
   height: auto;
   top: 30%;
   left:50%;
   margin-top: 15%;
   transform: translate(-50%,-50%);
   overflow-y: auto;
-
+  z-index: 2;
 }
 
 .post-modal-container img {
-  width: 50%;
-  border: 5px solid red;
+  width: 100%;
+  /*border: 5px solid red;*/
   object-fit: cover;
 }
 
