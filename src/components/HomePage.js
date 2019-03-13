@@ -6,7 +6,9 @@ import HomeImage from '../assets/illustrations/undraw_home.svg';
 // import { fetchAllPosts } from '../store/actions';
 
 const HomePage = (props) => {
-  const { posts, fetchAllPosts } = props;
+  const {
+    posts, fetchAllPosts, showPostModal, deletePost, updatePost, hidePostModal, shownPostModal,
+  } = props;
   return (
     <div className="home-page-wrapper">
       <section className="home-page-header">
@@ -22,7 +24,15 @@ const HomePage = (props) => {
         </div>
       </section>
 
-      <PostsList posts={posts} fetchAllPosts={fetchAllPosts} />
+      <PostsList
+        posts={posts}
+        fetchAllPosts={fetchAllPosts}
+        showPostModal={showPostModal}
+        deletePost={deletePost}
+        updatePost={updatePost}
+        hidePostModal={hidePostModal}
+        shownPostModal={shownPostModal}
+      />
 
       <section className="home-page-bottom-content">
         <h2>Download the App</h2>
@@ -32,7 +42,7 @@ const HomePage = (props) => {
           <button type="button">For Android</button>
         </div>
       </section>
-      
+
     </div>
   );
 };
@@ -40,6 +50,11 @@ const HomePage = (props) => {
 HomePage.propTypes = {
   posts: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   fetchAllPosts: PropTypes.func.isRequired,
+  showPostModal: PropTypes.func.isRequired,
+  deletePost: PropTypes.func.isRequired,
+  updatePost: PropTypes.func.isRequired,
+  hidePostModal: PropTypes.func.isRequired,
+  shownPostModal: PropTypes.bool.isRequired,
 };
 
 export default HomePage;
