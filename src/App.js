@@ -13,7 +13,6 @@ import Login from './components/Login';
 import Logout from './components/Logout';
 import SignUp from './components/SignUp';
 import HomePage from './components/HomePage';
-import DashboardPage from './components/DashboardPage';
 import AboutPage from './components/AboutPage';
 import ContactPage from './components/ContactPage';
 import Footer from './components/Footer';
@@ -29,34 +28,20 @@ const App = ({
     <NavBar loggedIn={Boolean(state.authToken)} />
     <Route
       exact
-      path="/"
+      path="/home"
       render={props => (
         <HomePage
           {...props}
           posts={state.posts}
           fetchAllPosts={dispatchFetchAllPosts}
           showPostModal={dispatchShowPostModal}
-          updatePost={dispatchUpdatePost}
-          deletePost={deletePost}
-          hidePostModal={dispatchHidePostModal}
-          shownPostModal={state.shownPostModal.id}
-        />
-      )}
-    />
-    <Route
-      path="/dashboard"
-      render={props => (
-        <DashboardPage
-          {...props}
-          posts={state.posts}
-          deletePost={dispatchDeletePost}
           createPost={dispatchCreatePost}
-          showPostModal={dispatchShowPostModal}
-          hidePostModal={dispatchHidePostModal}
           updatePost={dispatchUpdatePost}
-          fetchAllPosts={dispatchFetchAllPosts}
+          deletePost={dispatchDeletePost}
+          hidePostModal={dispatchHidePostModal}
           shownPostModal={state.shownPostModal.id}
           isEditable={state.shownPostModal.isEditable}
+          loggedIn={Boolean(state.authToken)}
           makePostModalEditable={dispatchMakePostModalEditable}
           makePostModalUneditable={dispatchMakePostModalUneditable}
         />
