@@ -27,7 +27,15 @@ const SignUp = ({ loggedIn }) => {
             </div>
           </div>
           <p className="agreement">
-            By continuing, you agree to Art Portolio's <span>Terms of Servicee</span>, <span>Privacy</span>, and <span>Cookie Use</span>
+            By continuing, you agree to Art Portolio's
+            {' '}
+            <span>Terms of Servicee</span>
+,
+            {' '}
+            <span>Privacy</span>
+, and
+            {' '}
+            <span>Cookie Use</span>
           </p>
         </form>
       </div>
