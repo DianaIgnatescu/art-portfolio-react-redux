@@ -7,7 +7,7 @@ import PostModal from './PostModal';
 const PostsList = (props) => {
   const {
     posts, deletePost, updatePost, showPostModal, shownPostModal, hidePostModal, isEditable,
-    makePostModalEditable, makePostModalUneditable,
+    makePostModalEditable, makePostModalUneditable, loggedIn,
   } = props;
   return (
     <div className="post-list-wrapper">
@@ -22,6 +22,7 @@ const PostsList = (props) => {
           updatePost={updatePost}
           makePostModalEditable={makePostModalEditable}
           makePostModalUneditable={makePostModalUneditable}
+          loggedIn={loggedIn}
         />
         {posts.map(post => (
           <Post
@@ -53,6 +54,7 @@ PostsList.propTypes = {
   isEditable: PropTypes.bool.isRequired,
   makePostModalEditable: PropTypes.func.isRequired,
   makePostModalUneditable: PropTypes.func.isRequired,
+  loggedIn: PropTypes.bool.isRequired,
 };
 
 export default PostsList;
