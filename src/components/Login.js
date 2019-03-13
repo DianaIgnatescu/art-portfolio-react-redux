@@ -2,7 +2,7 @@
 import React from 'react';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import PropTypes from 'prop-types';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 
 const handleClick = loginRequest => (event) => {
   event.preventDefault();
@@ -22,7 +22,7 @@ const handleClick = loginRequest => (event) => {
 
 const Login = ({ loggedIn, loginRequest }) => {
   if (loggedIn) {
-    return <Redirect to="/dashboard" />;
+    return <Redirect to="/home" />;
   }
   return (
     <div className="login-wrapper">
@@ -46,7 +46,7 @@ const Login = ({ loggedIn, loginRequest }) => {
           <button type="submit" className="login-button" onClick={handleClick(loginRequest)}>LOGIN</button>
 
           <div className="login-page-register">
-            <p>Need an account?<a href="#">Sign up now!</a></p>
+            <p>Need an account?<Link to="/sign-up">Sign up now!</Link></p>
           </div>
         </form>
       </div>
