@@ -78,6 +78,8 @@ const SignUpForm = styled.form`
   .agreement {
     span {
     padding: 0;
+    color: #E19870;
+    font-size: 1.6rem;
     }
   }
 `;

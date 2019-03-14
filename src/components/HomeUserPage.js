@@ -6,13 +6,6 @@ import PostsList from './PostsList';
 import HomeImage from '../assets/illustrations/undraw_home.svg';
 // import { fetchAllPosts } from '../store/actions';
 
-const HomePageWrapper = styled.div`
-  // @media (max-width: 500px) {
-  //   display: flex;
-  //   flex-direction: column;
-  // }
-`;
-
 const HomePageHeader = styled.section`
   max-width: 800px;
   margin: 0 auto;
@@ -22,7 +15,7 @@ const HomePageHeader = styled.section`
   @media (max-width: 500px) {
     flex-direction: column;
     max-width: 100%;
-    margin: 0 15px; 
+    margin: 0 20px; 
   }
   .header-left {
     max-width: 50%;
@@ -107,10 +100,14 @@ const HomePageBottomContent = styled.section`
   }
   .download-buttons {
     display: flex;
+    margin: 0 auto;
+    width: 500px;
     padding-top: 15px;
     @media (max-width: 500px) {
       flex-direction: column;
-      margin: 0;
+      margin: 0 auto;
+      width: 300px;
+
     }
     button {
       margin: 10px;
@@ -121,7 +118,7 @@ const HomePageBottomContent = styled.section`
       border-radius: 3px;
       font-size: 1.8rem;
       @media (max-width: 500px) {
-        width: 350px;
+        width: 280px;
       }
       i {
         padding-right: 7px;
@@ -157,7 +154,7 @@ const HomeUserPage = (props) => {
     loggedIn, isEditable, makePostModalEditable, makePostModalUneditable,
   } = props;
   return (
-    <HomePageWrapper>
+    <div className="home-page-wrapper">
       <HomePageHeader>
         <div className="header-left">
           <h2>Discover the world's top creatives</h2>
@@ -209,7 +206,7 @@ const HomeUserPage = (props) => {
         </div>
       </HomePageBottomContent>
 
-    </HomePageWrapper>
+    </div>
   );
 };
 
@@ -222,9 +219,9 @@ HomeUserPage.propTypes = {
   hidePostModal: PropTypes.func.isRequired,
   shownPostModal: PropTypes.oneOfType([PropTypes.number, PropTypes.bool]).isRequired,
   loggedIn: PropTypes.bool.isRequired,
-  // isEditable: PropTypes.bool.isRequired,
-  // makePostModalEditable: PropTypes.func.isRequired,
-  // makePostModalUneditable: PropTypes.func.isRequired,
+  isEditable: PropTypes.bool.isRequired,
+  makePostModalEditable: PropTypes.func.isRequired,
+  makePostModalUneditable: PropTypes.func.isRequired,
 };
 
 export default HomeUserPage;
