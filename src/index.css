@@ -76,6 +76,10 @@ html, body {
   background-attachment: fixed;
 }
 
+h1, h2, h3, h4 {
+  font-family:'Oswald', sans-serif;
+}
+
 h1 {
   font-size: 4.8rem;
 }
