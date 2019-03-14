@@ -10,16 +10,24 @@ const AboutPageServices = () => (
           <img src={FeatureOne} alt="service" />
           <div className="service-details">
             <h2>Twee pabst gentrify literally squid pop-up woke kale chips.</h2>
-            <p>Craft beer gluten-free you probably haven't heard of them keffiyeh single-origin coffee green juice hashtag blue bottle. Swag pok pok lyft, gochujang normcore skateboard subway tile man bun freegan venmo mumblecore portland crucifix franzen.</p>
-            <button>LEARN MORE→</button>
+            <p>
+              Craft beer gluten-free you probably haven't heard of them keffiyeh single-origin
+              coffee green juice hashtag blue bottle. Swag pok pok lyft, gochujang normcore
+              skateboard subway tile man bun freegan venmo mumblecore portland crucifix franzen.
+            </p>
+            <button type="button">LEARN MORE→</button>
           </div>
         </div>
 
         <div className="service">
           <div className="service-details">
             <h2>Twee pabst gentrify literally squid pop-up woke kale chips.</h2>
-            <p>Craft beer gluten-free you probably haven't heard of them keffiyeh single-origin coffee green juice hashtag blue bottle. Swag pok pok lyft, gochujang normcore skateboard subway tile man bun freegan venmo mumblecore portland crucifix franzen.</p>
-            <button>LEARN MORE→</button>
+            <p>
+              Craft beer gluten-free you probably haven't heard of them keffiyeh single-origin
+              coffee green juice hashtag blue bottle. Swag pok pok lyft, gochujang normcore
+              skateboard subway tile man bun freegan venmo mumblecore portland crucifix franzen.
+            </p>
+            <button type="button">LEARN MORE→</button>
           </div>
           <img src={FeatureOne} alt="service" />
 
@@ -37,8 +45,12 @@ const AboutPageServices = () => (
         <div className="service">
           <div className="service-details">
             <h2>Twee pabst gentrify literally squid pop-up woke kale chips.</h2>
-            <p>Craft beer gluten-free you probably haven't heard of them keffiyeh single-origin coffee green juice hashtag blue bottle. Swag pok pok lyft, gochujang normcore skateboard subway tile man bun freegan venmo mumblecore portland crucifix franzen.</p>
-            <button>LEARN MORE→</button>
+            <p>
+              Craft beer gluten-free you probably haven't heard of them keffiyeh single-origin
+              coffee green juice hashtag blue bottle. Swag pok pok lyft, gochujang normcore
+              skateboard subway tile man bun freegan venmo mumblecore portland crucifix franzen.
+            </p>
+            <button type="button">LEARN MORE→</button>
           </div>
           <img src={FeatureOne} alt="service" />
         </div>
