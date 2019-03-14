@@ -1,9 +1,29 @@
 import React from 'react';
+import styled from 'styled-components';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import PropTypes from 'prop-types';
 import PostsList from './PostsList';
 import HomeArtistProfilePanel from './HomeArtistProfilePanel';
 import HomeArtistCreatePost from './HomeArtistCreatePost';
+
+const HomeArtistPageWrapper = styled.div`
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  padding: 80px 0 30px;
+  justify-content: space-between;
+  @media (max-width: 500px) {
+    flex-direction: column;
+  }
+`;
+
+const UserActions = styled.div`
+  max-width: 70%;
+  @media (max-width: 500px) {
+    max-width: 100%;
+    margin: 15px;
+  }
+`;
 
 const HomeArtistPage = (props) => {
   const {
@@ -12,9 +32,9 @@ const HomeArtistPage = (props) => {
   } = props;
 
   return (
-    <div className="dashboard-wrapper">
+    <HomeArtistPageWrapper>
       <HomeArtistProfilePanel />
-      <div className="user-actions">
+      <UserActions>
         <HomeArtistCreatePost createPost={createPost} />
         <div className="artist-post-list">
           <PostsList
@@ -31,8 +51,8 @@ const HomeArtistPage = (props) => {
             loggedIn={loggedIn}
           />
         </div>
-      </div>
-    </div>
+      </UserActions>
+    </HomeArtistPageWrapper>
   );
 };
 
