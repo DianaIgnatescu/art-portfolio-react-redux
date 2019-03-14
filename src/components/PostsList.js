@@ -1,8 +1,25 @@
 import React from 'react';
+import styled from 'styled-components';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import PropTypes from 'prop-types';
 import Post from './Post';
 import PostModal from './PostModal';
+
+const PostsListWrapper = styled.div`
+  margin: 0 auto;
+  max-width: 800px;
+`;
+
+const PostListContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 30px 0;
+  @media (max-width: 500px) {
+    display: column;
+  }
+`;
+
 
 const PostsList = (props) => {
   const {
@@ -10,9 +27,8 @@ const PostsList = (props) => {
     makePostModalEditable, makePostModalUneditable, loggedIn,
   } = props;
   return (
-    <div className="post-list-wrapper">
-      <h3>This is a where the gallery goes</h3>
-      <div className="post-list">
+    <PostsListWrapper>
+      <PostListContainer>
         <PostModal
           isEditable={isEditable}
           posts={posts}
@@ -39,8 +55,8 @@ const PostsList = (props) => {
             shownPostModal={shownPostModal}
           />
         ))}
-      </div>
-    </div>
+      </PostListContainer>
+    </PostsListWrapper>
   );
 };
 
