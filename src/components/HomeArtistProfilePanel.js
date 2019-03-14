@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import UserProfile from '../assets/artist.png';
+import UserProfile from '../assets/artist.jpg';
 
 const UserInfo = styled.div`
   max-width: 25%;
@@ -47,6 +47,10 @@ const UserInfo = styled.div`
     width: 150px;
     align-self: center;
     margin: 10px 0;
+    border: none;
+    border-radius: 3px;
+    text-transform: uppercase;
+    margin: 20px 0;
   }
   
 `;
@@ -54,7 +58,7 @@ const HomeArtistProfilePanel = () => (
   <UserInfo>
     <img src={UserProfile} alt="user" />
     <h4>User name</h4>
-    <p className="quote">Some description blah blah blah blah blah blah blah blah</p>
+    <p className="quote">Some description, very inspiring, sounds smart, love it.</p>
     <button type="button">146 Followers</button>
     <p>Elsewhere:</p>
     <a href="https://www.instagram.com/">

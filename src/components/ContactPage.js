@@ -27,6 +27,7 @@ const ContactForm = styled.form`
     margin: 20px 0;
     height: 40px;
     border-radius: 3px;
+    color: #3D3A4F;
     border: none;
     text-transform: uppercase;
     font-size: 1.6rem;
@@ -57,7 +58,7 @@ const ContactPage = () => (
       <p>Email Address</p>
       <input type="email" placeholder="Your Email Address..." />
       <p>Subject</p>
-      <input type="text" placeholder="What is this about?..." />
+      <input type="text" placeholder="What is your question about?..." />
       <p>Message</p>
       <input type="message" placeholder="Be as detailed as you can..." />
       <button type="button">Send Message</button>
