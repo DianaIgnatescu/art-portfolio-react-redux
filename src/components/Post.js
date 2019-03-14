@@ -68,7 +68,7 @@ const Post = (props) => {
   } = props;
 
   return (
-    <PostContainer>
+    <PostContainer onClick={handleShowModalClick(id, showPostModal)}>
       <button type="button" onClick={handleShowModalClick(id, showPostModal)}>View</button>
       <div className="image-container">
         <img src={imageUrl} alt={description} />
