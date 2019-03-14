@@ -188,7 +188,7 @@ const PostModalEditable = (props) => {
     const post = posts.find(aPost => aPost.id === shownPostModal);
     return (
       <PostModalOuter>
-        <PostModalEditableContainer onClick={handleClick(hidePostModal)}>
+        <PostModalEditableContainer>
           <button type="button" className="close" onClick={handleClick(hidePostModal)}>X</button>
           <div className="image-container">
             <img src={post.imageUrl} alt="cannot display post" />
@@ -196,7 +196,12 @@ const PostModalEditable = (props) => {
           <PostActions>
             <div className="post-reactions">
               <i className="far fa-heart" />
-              <p>{post.upvotes}{' '}Likes </p>
+              <p>
+                {post.upvotes}
+                {' '}
+Likes
+                {' '}
+              </p>
             </div>
             <div className="post-action-buttons">
               <button type="button" className="action-button" onClick={handleDeleteClick(shownPostModal, deletePost)}>DELETE</button>
@@ -229,7 +234,12 @@ const PostModalEditable = (props) => {
           </PostForm>
           <div className="post-reactions">
             <i className="far fa-heart" />
-            <p>{post.upvotes}{' '}Likes </p>
+            <p>
+              {post.upvotes}
+              {' '}
+Likes
+              {' '}
+            </p>
           </div>
 
           <p className="post-title">{post.postName}</p>
