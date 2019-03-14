@@ -162,7 +162,9 @@ const HomeUserPage = (props) => {
         <div className="header-left">
           <h2>Discover the world's top creatives</h2>
           <p>
-            Art Portolio is amet everyday carry humblebreg street art keffiyeh 90's tacos poutine bitters drinking vinegar slow-carb subway tile echo park vaporware ethical. Quinoa viral gluten-free kinfolk ramps chillwave.
+            Art Portolio is amet everyday carry humblebreg street art keffiyeh 90's tacos poutine
+            bitters drinking vinegar slow-carb subway tile echo park vaporware ethical. Quinoa viral
+            gluten-free kinfolk ramps chillwave.
           </p>
           <button type="button">SIGN UP</button>
         </div>
@@ -191,18 +193,18 @@ const HomeUserPage = (props) => {
 
         <div className="cta">
           <h2>Sign up to see more</h2>
-          <button>SIGN UP</button>
+          <button type="button">SIGN UP</button>
         </div>
         <h2>Download the App</h2>
         <h3>Our app is available for download so give it a try</h3>
         <div className="download-buttons">
           <button type="button" className="filled">
             <i className="fab fa-apple" />
-For iOS
+            For iOS
           </button>
           <button type="button" className="border">
             <i className="fab fa-google-play" />
-For Android
+            For Android
           </button>
         </div>
       </HomePageBottomContent>
@@ -220,6 +222,9 @@ HomeUserPage.propTypes = {
   hidePostModal: PropTypes.func.isRequired,
   shownPostModal: PropTypes.oneOfType([PropTypes.number, PropTypes.bool]).isRequired,
   loggedIn: PropTypes.bool.isRequired,
+  // isEditable: PropTypes.bool.isRequired,
+  // makePostModalEditable: PropTypes.func.isRequired,
+  // makePostModalUneditable: PropTypes.func.isRequired,
 };
 
 export default HomeUserPage;

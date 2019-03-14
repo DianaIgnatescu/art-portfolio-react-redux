@@ -68,6 +68,7 @@ HomeArtistPage.propTypes = {
   isEditable: PropTypes.bool.isRequired,
   makePostModalEditable: PropTypes.func.isRequired,
   makePostModalUneditable: PropTypes.func.isRequired,
+  loggedIn: PropTypes.bool.isRequired,
 };
 
 export default HomeArtistPage;

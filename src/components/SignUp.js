@@ -75,6 +75,11 @@ const SignUpForm = styled.form`
     margin: 20px 0;
     background: #E19870;
   }
+  .agreement {
+    span {
+    padding: 0;
+    }
+  }
 `;
 
 const AlternativeSignUpButtons = styled.div`

@@ -57,10 +57,9 @@ const Navbar = ({ loggedIn }) => (
     <NavigationContainer>
       <Link to="/home" className="logo">Art Portolio </Link>
       <nav>
-          <NavLink to="/home">Home</NavLink>
-          {/* <NavLink to="/dashboard">Dashboard</NavLink> */}
-          <NavLink to="/about">About</NavLink>
-          <NavLink to="/contact">Contact</NavLink>
+        <NavLink to="/home">Home</NavLink>
+        <NavLink to="/about">About</NavLink>
+        <NavLink to="/contact">Contact</NavLink>
         {!loggedIn ? (
           <div className="register">
             <NavLink to="/sign-up">Sign Up</NavLink>
