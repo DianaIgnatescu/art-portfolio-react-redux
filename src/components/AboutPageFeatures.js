@@ -46,7 +46,8 @@ const AboutPageFeatures = () => (
         <div className="feature">
           <img src={SvgIconFour} alt="features" />
           <h3>Take pictures</h3>
-          <p>Lorem ipsum dolor amet cliche actually twee four loko tattooed, gastropub asymmetrical
+          <p>
+Lorem ipsum dolor amet cliche actually twee four loko tattooed, gastropub asymmetrical
             leggings vegan roof party sustainable.
           </p>
         </div>
@@ -54,7 +55,8 @@ const AboutPageFeatures = () => (
         <div className="feature">
           <img src={SvgIconFive} alt="features" />
           <h3>Take pictures</h3>
-          <p>Lorem ipsum dolor amet cliche actually twee four loko tattooed, gastropub asymmetrical
+          <p>
+Lorem ipsum dolor amet cliche actually twee four loko tattooed, gastropub asymmetrical
             leggings vegan roof party sustainable.
           </p>
         </div>
@@ -62,7 +64,8 @@ const AboutPageFeatures = () => (
         <div className="feature">
           <img src={SvgIconSix} alt="features" />
           <h3>Take pictures</h3>
-          <p>Lorem ipsum dolor amet cliche actually twee four loko tattooed, gastropub asymmetrical
+          <p>
+Lorem ipsum dolor amet cliche actually twee four loko tattooed, gastropub asymmetrical
             leggings vegan roof party sustainable.
           </p>
         </div>
