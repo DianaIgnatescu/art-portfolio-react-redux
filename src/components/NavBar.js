@@ -1,17 +1,63 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import styled from 'styled-components';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import PropTypes from 'prop-types';
 
+const NavBarWrapper = styled.div`
+  background: #202330;
+  width: 100vw;
+  padding: 0 20px;
+  position: fixed;
+  z-index: 99;
+  }
+`;
+
+const NavigationContainer = styled.div`
+  height: 50px;
+  margin: 0 auto;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  .logo {
+      font-family: 'Julius Sans One', sans-serif;
+      font-size: 2rem;
+      // margin-left: 50px;
+    }
+  nav {
+    display: flex;
+    justify-content: space-between;
+    width: 700px;
+    .active {
+      color: #E19870;
+    }
+    .register {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      a {
+        padding-right: 20px;
+        font-size: 1.6rem;
+        font-family: 'Roboto', sans-serif;
+      }
+    }
+    a {
+      font-family: 'Roboto';
+      font-size: 1.6rem;
+      text-transform: uppercase;
+    }
+  }
+`;
+
 const Navbar = ({ loggedIn }) => (
-  <div className="navbar-wrapper">
-    <div className="navigation">
+  <NavBarWrapper>
+    <NavigationContainer>
       <Link to="/home" className="logo">Art Portolio </Link>
       <nav>
-        <NavLink to="/home">Home</NavLink>
-        {/* <NavLink to="/dashboard">Dashboard</NavLink> */}
-        <NavLink to="/about">About</NavLink>
-        <NavLink to="/contact">Contact</NavLink>
+          <NavLink to="/home">Home</NavLink>
+          {/* <NavLink to="/dashboard">Dashboard</NavLink> */}
+          <NavLink to="/about">About</NavLink>
+          <NavLink to="/contact">Contact</NavLink>
         {!loggedIn ? (
           <div className="register">
             <NavLink to="/sign-up">Sign Up</NavLink>
@@ -23,8 +69,8 @@ const Navbar = ({ loggedIn }) => (
           </div>
         )}
       </nav>
-    </div>
-  </div>
+    </NavigationContainer>
+  </NavBarWrapper>
 );
 
 Navbar.propTypes = {
