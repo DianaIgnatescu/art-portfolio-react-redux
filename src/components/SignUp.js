@@ -1,17 +1,105 @@
 import React from 'react';
+import styled from 'styled-components';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
 
+
+const SignUpContainer = styled.div`
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 50px 0;
+`;
+
+const SignUpForm = styled.form`
+  padding: 20px;
+  background: linear-gradient(to bottom,#3D3A4F, #202330);
+  border-radius: 3px;
+  border: 1px solid #676D85;
+  margin: 60px 0 20px 0;
+  @media (max-width: 500px) {
+    max-width: 100%;
+    border: none;
+    background: none;
+  }
+  h2 {
+    text-align: center;
+    font-family: 'Julius Sans One', sans-serif;
+  }
+  p {
+    padding: 20px 0 10px;
+  }
+  button {
+    width: 100%;
+    margin: 20px 0;
+    background: #E19870;
+    border: none;
+    height: 40px;
+    font-size: 1.6rem;
+    border-radius: 3px;
+    &:hover {
+      opacity: 0.8;
+      
+      cursor: pointer;
+    }
+  }
+  span {
+    font-size: 1.6rem;
+    padding-left: 15px;
+    text-decoration: underline;
+    &:hover {
+      text-decoration: underline;
+      color: #E19870;
+      cursor: pointer;
+    }
+  }
+  input {
+    width: 100%;
+    height: 40px;
+    border-radius: 3px;
+    border: none;
+    color: #BEBEBE;
+    padding-left: 15px;
+    background:#3e3b4f;
+    font-size: 1.8rem;
+    &::placeholder {
+    font-size: 1.8rem;
+    }
+  }
+  .center-sign-up {
+    text-align: center;
+    padding-top: 0;
+  }
+  .sign-up-button {
+    width: 100%;
+    margin: 20px 0;
+    background: #E19870;
+  }
+`;
+
+const AlternativeSignUpButtons = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  button {
+    width: 100%;
+    margin: 5px 0;
+    background: #676D85;
+    color: #BEBEBE;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+`;
 
 const SignUp = ({ loggedIn }) => {
   if (loggedIn) {
     return <Redirect to="/dashboard" />;
   }
   return (
-    <div className="sign-up-wrapper">
-      <div className="sign-up">
-        <form className="sign-up-form">
+    <div>
+      <SignUpContainer>
+        <SignUpForm>
           <h2>Art Portolio</h2>
           <p>Email</p>
           <input name="username" type="text" placeholder="Your Email..." />
@@ -20,16 +108,16 @@ const SignUp = ({ loggedIn }) => {
           <button type="button" className="sign-up-button">SIGN UP</button>
           <div className="alternative-sign-up">
             <p className="center-sign-up">or</p>
-            <div className="alternative-sign-up-buttons">
+            <AlternativeSignUpButtons>
               <button type="button">Sign up with Twitter</button>
               <button type="button">Sign up with Facebook</button>
               <button type="button">Sign up with Google</button>
-            </div>
+            </AlternativeSignUpButtons>
           </div>
           <p className="agreement">
             By continuing, you agree to Art Portolio's
             {' '}
-            <span>Terms of Servicee</span>
+            <span>Terms of Service</span>
 ,
             {' '}
             <span>Privacy</span>
@@ -37,8 +125,8 @@ const SignUp = ({ loggedIn }) => {
             {' '}
             <span>Cookie Use</span>
           </p>
-        </form>
-      </div>
+        </SignUpForm>
+      </SignUpContainer>
     </div>
   );
 };

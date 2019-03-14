@@ -68,6 +68,12 @@ const HeaderIllustration = styled.img`
   max-width: 100%;
 `;
 
+const UserPostsList = styled.div`
+  @media (max-width: 500px) {
+    margin: 20px;
+  }
+`;
+
 const HomePageBottomContent = styled.section`
   max-width: 800px;
   margin: 0 auto;
@@ -165,19 +171,21 @@ const HomeUserPage = (props) => {
         </div>
       </HomePageHeader>
 
-      <PostsList
-        posts={posts}
-        fetchAllPosts={fetchAllPosts}
-        showPostModal={showPostModal}
-        hidePostModal={hidePostModal}
-        deletePost={deletePost}
-        updatePost={updatePost}
-        shownPostModal={shownPostModal}
-        isEditable={isEditable}
-        makePostModalEditable={makePostModalEditable}
-        makePostModalUneditable={makePostModalUneditable}
-        loggedIn={loggedIn}
-      />
+      <UserPostsList>
+        <PostsList
+          posts={posts}
+          fetchAllPosts={fetchAllPosts}
+          showPostModal={showPostModal}
+          hidePostModal={hidePostModal}
+          deletePost={deletePost}
+          updatePost={updatePost}
+          shownPostModal={shownPostModal}
+          isEditable={isEditable}
+          makePostModalEditable={makePostModalEditable}
+          makePostModalUneditable={makePostModalUneditable}
+          loggedIn={loggedIn}
+        />
+      </UserPostsList>
 
       <HomePageBottomContent>
 

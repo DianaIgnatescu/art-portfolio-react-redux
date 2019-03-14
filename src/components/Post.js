@@ -7,13 +7,22 @@ import PropTypes from 'prop-types';
 const PostContainer = styled.div`
   width: 30%;
   // margin: 15px;
+  text-align: right;
   margin-bottom: 10px;
   @media (max-width: 500px) {
     width: 100%;
   }
+  
   .image-container {
+    height: 300px;
     @media (max-width: 500px) {
     max-width: 100%;
+    }
+    img {
+      object-fit: cover;
+      object-position: top;
+      width: 100%;
+      height: 100%;
     }
   }
     
@@ -25,7 +34,7 @@ const PostContainer = styled.div`
     text-align: center;
     position: relative;
     border-radius: 0;
-    left: 71.5%;
+    border: none;
     top: 30px;
     padding: 0;
     cursor: pointer;
@@ -36,15 +45,13 @@ const PostContainer = styled.div`
     opacity: 0.6;
     color: #FFFFFF;
     }
-    @media (max-width: 500px) {
-    left: 84.3%;
-    }
   }
  .post-reactions {
     display: flex;
     padding: 5px;
     background: #202330;
     opacity: 0.5;
+    justify-content: space-between;
     position: relative;
     bottom: 29px;
     &:hover {

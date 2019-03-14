@@ -22,6 +22,9 @@ const NavigationContainer = styled.div`
   .logo {
       font-family: 'Julius Sans One', sans-serif;
       font-size: 2rem;
+      @media (max-width: 500px) {
+        display: none;
+      }
       // margin-left: 50px;
     }
   nav {
