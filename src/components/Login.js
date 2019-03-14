@@ -101,7 +101,6 @@ const LoginWrapper = styled.div`
   }
 `;
 
-
 const handleClick = loginRequest => (event) => {
   event.preventDefault();
   let username = '';

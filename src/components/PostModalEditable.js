@@ -25,7 +25,6 @@ const PostModalEditableContainer = styled.div`
   transform: translate(-50%,-50%);
   overflow-y: auto;
   z-index: 101;
-  // opacity: 1;
   display: flex;
   flex-direction: column;
   border-radius: 3px;
