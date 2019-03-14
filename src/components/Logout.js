@@ -7,7 +7,7 @@ import { Redirect } from 'react-router-dom';
 const Logout = ({ loggedIn, logout }) => {
   localStorage.clear();
   logout();
-  return <Redirect to="/" />;
+  return <Redirect to="/home" />;
 };
 
 Logout.propTypes = {

@@ -26,8 +26,32 @@ export const DELETE_POST_FAILURE = 'DELETE_POST_FAILURE';
 
 export const LOGOUT = 'LOGOUT';
 
+export const SHOW_POST_MODAL = 'SHOW_POST_MODAL';
+export const HIDE_POST_MODAL = 'HIDE_POST_MODAL';
+
+export const MAKE_POST_MODAL_EDITABLE = 'MAKE_POST_MODAL_EDITABLE';
+export const MAKE_POST_MODAL_UNEDITABLE = 'MAKE_POST_MODAL_UNEDITABLE';
 
 // Synchronous action creators
+
+export const makePostModalEditable = () => ({
+  type: MAKE_POST_MODAL_EDITABLE,
+});
+
+export const makePostModalUneditable = () => ({
+  type: MAKE_POST_MODAL_UNEDITABLE,
+});
+
+export const showPostModal = id => ({
+  type: SHOW_POST_MODAL,
+  payload: {
+    id,
+  },
+});
+
+export const hidePostModal = () => ({
+  type: HIDE_POST_MODAL,
+});
 
 export const logout = () => ({
   type: LOGOUT,
@@ -147,7 +171,7 @@ export const deletePostFailure = (error) => {
 };
 
 // Asynchronous action creators
-const TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTUyMzM3MDkwLCJleHAiOjE1ODM4OTQ2OTB9._HNXbwEyV-ILHpg0y--7MYJ4p6Di9FowEyeFrFjxY70';
+// const TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTUyMzM3MDkwLCJleHAiOjE1ODM4OTQ2OTB9._HNXbwEyV-ILHpg0y--7MYJ4p6Di9FowEyeFrFjxY70';
 export const loginRequest = (username, password) => async (dispatch) => {
   dispatch({ type: LOGIN_REQUEST });
   const config = {
