@@ -100,9 +100,9 @@ const Footer = () => (
       <FooterInfo>
         <h4>Art Portolio</h4>
         <p>
-            We are aenean vulputate nisl arcu, non consequat risus vulputate sed. Nulla eu sapien
-            condimentum nisi aliquet sodales non et diam. Duis blandit nunc semper rutrum congue.
-            Phasellus sed lacus ut odio vehicula varius.
+          We are aenean vulputate nisl arcu, non consequat risus vulputate sed. Nulla eu sapien
+          condimentum nisi aliquet sodales non et diam. Duis blandit nunc semper rutrum congue.
+          Phasellus sed lacus ut odio vehicula varius.
         </p>
         <div className="footer-icons fa-lg">
           <a href="#"><i className="fab fa-facebook fa-lg" /></a>

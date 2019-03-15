@@ -26,16 +26,19 @@ const CreatePost = styled.div`
     }
     button {
       margin-top: 10px;
-      height: 32px;
+      height: 40px;
+      text-transform: uppercase;
       padding: 5px;
       font-size: 1.6rem;
       margin: 10px 0;
       width: 150px;
       background: #E19870;
+      border-radius: 3px;
+      border: none;
       color: #3D3A4F;
       cursor: pointer;
       &:hover {
-      background: #E19870;
+      opacity: 0.8;
       color: #3D3A4F;
     }
   }

@@ -92,12 +92,17 @@ const PostModalUneditable = (props) => {
   const post = posts.find(aPost => aPost.id === shownPostModal);
   return (
     <PostModalOuter>
-      <PostModalUneditableContainer onClick={handleClick(hidePostModal)}>
+      <PostModalUneditableContainer>
         <button type="button" onClick={handleClick(hidePostModal)}>X</button>
         <img src={post.imageUrl} alt="cannot display post" />
         <div className="post-reactions">
           <i className="far fa-heart" />
-          <p>{post.upvotes}{' '}Likes </p>
+          <p>
+            {post.upvotes}
+            {' '}
+Likes
+            {' '}
+          </p>
         </div>
         <p className="post-title">{post.postName}</p>
         <p className="post-description">{post.description}</p>

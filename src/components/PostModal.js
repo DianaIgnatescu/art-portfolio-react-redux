@@ -41,7 +41,6 @@ PostModal.propTypes = {
   shownPostModal: PropTypes.oneOfType([PropTypes.number, PropTypes.bool]).isRequired,
   posts: PropTypes.arrayOf(PropTypes.shape({
   })).isRequired,
-  // imageUrl: PropTypes.string.isRequired,
   hidePostModal: PropTypes.func.isRequired,
   deletePost: PropTypes.func.isRequired,
   isEditable: PropTypes.bool.isRequired,

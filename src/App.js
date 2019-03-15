@@ -16,7 +16,6 @@ import HomePage from './components/HomePage';
 import AboutPage from './components/AboutPage';
 import ContactPage from './components/ContactPage';
 import Footer from './components/Footer';
-import './App.css';
 
 const App = ({
   state, dispatchFetchAllPosts, dispatchLoginRequest,

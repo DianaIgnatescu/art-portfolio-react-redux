@@ -10,7 +10,6 @@ const NavBarWrapper = styled.div`
   padding: 0 20px;
   position: fixed;
   z-index: 99;
-  }
 `;
 
 const NavigationContainer = styled.div`
@@ -30,7 +29,14 @@ const NavigationContainer = styled.div`
   nav {
     display: flex;
     justify-content: space-between;
-    width: 700px;
+    width: 90%;
+    .nav-links {
+      display: flex;
+      justify-content: space-between;
+      a {
+        padding: 0 20px;
+      }
+    }
     .active {
       color: #E19870;
     }
@@ -39,7 +45,7 @@ const NavigationContainer = styled.div`
       justify-content: space-between;
       align-items: baseline;
       a {
-        padding-right: 20px;
+        padding-left: 20px;
         font-size: 1.6rem;
         font-family: 'Roboto', sans-serif;
       }
@@ -57,10 +63,11 @@ const Navbar = ({ loggedIn }) => (
     <NavigationContainer>
       <Link to="/home" className="logo">Art Portolio </Link>
       <nav>
+        <div className="nav-links">
           <NavLink to="/home">Home</NavLink>
-          {/* <NavLink to="/dashboard">Dashboard</NavLink> */}
           <NavLink to="/about">About</NavLink>
           <NavLink to="/contact">Contact</NavLink>
+        </div>
         {!loggedIn ? (
           <div className="register">
             <NavLink to="/sign-up">Sign Up</NavLink>

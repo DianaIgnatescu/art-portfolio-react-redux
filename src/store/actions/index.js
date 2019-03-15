@@ -171,7 +171,7 @@ export const deletePostFailure = (error) => {
 };
 
 // Asynchronous action creators
-// const TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNTUyMzM3MDkwLCJleHAiOjE1ODM4OTQ2OTB9._HNXbwEyV-ILHpg0y--7MYJ4p6Di9FowEyeFrFjxY70';
+
 export const loginRequest = (username, password) => async (dispatch) => {
   dispatch({ type: LOGIN_REQUEST });
   const config = {

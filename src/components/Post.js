@@ -2,17 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import PropTypes from 'prop-types';
-// import ImagePost from '../assets/artist.png';
 
 const PostContainer = styled.div`
   width: 30%;
-  // margin: 15px;
   text-align: right;
   margin-bottom: 10px;
   @media (max-width: 500px) {
     width: 100%;
   }
-  
   .image-container {
     height: 300px;
     @media (max-width: 500px) {
@@ -26,7 +23,6 @@ const PostContainer = styled.div`
     }
   }
     
-  }
   button {
     width: 60px;
     height: 30px;

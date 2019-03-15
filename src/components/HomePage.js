@@ -1,9 +1,6 @@
 import React from 'react';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import PropTypes from 'prop-types';
-// import PostsList from './PostsList';
-// import HomeImage from '../assets/illustrations/undraw_home.svg';
-// import HomeArtistPage from '../App';
 import HomeArtistPage from './HomeArtistPage';
 import HomeUserPage from './HomeUserPage';
 // import { fetchAllPosts } from '../store/actions';
