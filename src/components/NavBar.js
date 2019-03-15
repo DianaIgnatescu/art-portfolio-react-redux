@@ -10,7 +10,6 @@ const NavBarWrapper = styled.div`
   padding: 0 20px;
   position: fixed;
   z-index: 99;
-  }
 `;
 
 const NavigationContainer = styled.div`

@@ -137,7 +137,6 @@ const Login = ({ loggedIn, loginRequest }) => {
               <button type="button">Twitter</button>
               <button type="button">Facebook</button>
             </div>
-
           </div>
 
           <button type="submit" className="login-button" onClick={handleClick(loginRequest)}>LOGIN</button>

@@ -24,7 +24,6 @@ const TeamMembers = styled.div`
   padding: 30px 0;
   @media(max-width: 500px) {
     flex-direction: column;
-    padding
   }
 `;
 
@@ -33,11 +32,11 @@ const Member = styled.div`
   flex-direction: column;
   align-items: center;
   img {
-  width:100px;
-  height: 100px;
-  border-radius: 50%;
-  margin: 20px 0;
-}
+    width:100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 20px 0;
+  }
 `;
 
 const JoinTeam = styled.div`
@@ -84,15 +83,15 @@ const Company = styled.div`
     max-width: 50%;
     padding-left: 10px;
     @media(max-width: 500px) {
-    max-width: 100%;
-    padding-top: 20px;
-  }
+      max-width: 100%;
+      padding-top: 20px;
+    }
   }
   img {
     width: 50%;
     @media(max-width: 500px) {
-    width: 100%;
-  }
+      width: 100%;
+    }
   }
 `;
 

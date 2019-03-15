@@ -13,7 +13,7 @@ const Features = styled.section`
   padding: 20px 0;
   background: #F1F1F1;
   h2, h3 {
-  color: #3D3A4F;
+    color: #3D3A4F;
   }
 `;
 

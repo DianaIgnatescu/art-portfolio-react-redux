@@ -54,6 +54,7 @@ const UserInfo = styled.div`
   }
   
 `;
+
 const HomeArtistProfilePanel = () => (
   <UserInfo>
     <img src={UserProfile} alt="user" />

@@ -7,7 +7,6 @@ const ServicesBreakdown = styled.div`
   margin: 20px auto;
   @media (max-width: 500px) {
     padding: 20px;
-    
   }
   h2 {
     text-align: center;
@@ -29,8 +28,8 @@ const Service = styled.div`
   .service-image {
     width: 50%;
     @media (max-width: 500px) {
-    width: 100%;
-  }
+      width: 100%;
+    }
   }
   .service-details {
     width: 50%;
@@ -38,8 +37,8 @@ const Service = styled.div`
       width: 100%;
     }
     h2 {
-    text-align: left;
-    padding: 20px 0;
+      text-align: left;
+      padding: 20px 0;
     }
     button {
       height: 40px;
@@ -89,15 +88,18 @@ const AboutPageServices = () => (
             <button type="button">LEARN MORE→</button>
           </div>
           <img src={FeatureOne} alt="service" />
-
         </Service>
 
         <Service>
           <img src={FeatureOne} alt="service" />
           <div className="service-details">
             <h2>Twee pabst gentrify literally squid pop-up woke kale chips.</h2>
-            <p>Craft beer gluten-free you probably haven't heard of them keffiyeh single-origin coffee green juice hashtag blue bottle. Swag pok pok lyft, gochujang normcore skateboard subway tile man bun freegan venmo mumblecore portland crucifix franzen.</p>
-            <button>LEARN MORE→</button>
+            <p>
+              Craft beer gluten-free you probably haven't heard of them keffiyeh single-origin
+              coffee green juice hashtag blue bottle. Swag pok pok lyft, gochujang normcore
+              skateboard subway tile man bun freegan venmo mumblecore portland crucifix franzen.
+            </p>
+            <button type="button">LEARN MORE→</button>
           </div>
         </Service>
 
@@ -115,7 +117,6 @@ const AboutPageServices = () => (
         </Service>
       </DetailedServices>
     </ServicesBreakdown>
-
   </section>
 );
 
