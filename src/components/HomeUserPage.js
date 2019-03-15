@@ -127,7 +127,6 @@ const HomePageBottomContent = styled.section`
     }
     .filled {
       color: #202330;
-      font-size: 1.6rem;
       background: #E19870;
       &:hover {
         cursor: pointer;
