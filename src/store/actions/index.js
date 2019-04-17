@@ -362,7 +362,7 @@ export const loginRequest = (username, password) => async (dispatch) => {
   try {
     const result = await fetch(`${DOMAIN}/api/login`, config);
     const jsonResult = await result.json();
-    if (result.status === 403) {
+    if (result.status === 401) {
       throw new Error(jsonResult.error);
     }
     dispatch(loginSuccess(jsonResult.token, jsonResult.username,
@@ -374,12 +374,30 @@ export const loginRequest = (username, password) => async (dispatch) => {
 
 // ======= ADDED ASYNC ACTION CREATORS FOR USERS ======= //
 
-export const registerUser = userRegistration => async (dispatch) => {
+export const registerUser = (username, password, email) => async (dispatch) => {
   dispatch({ type: REGISTER_USER });
+  const user = {
+    username: String(username),
+    password: String(password),
+    email: String(email),
+  };
+  const config = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(user),
+  };
+
   try {
-    const result = await fetch(`${DOMAIN}/api/register`, userRegistration);
+    const result = await fetch(`${DOMAIN}/api/register`, config);
     const jsonResult = await result.json();
-    dispatch(registerUserSuccess(jsonResult));
+    const newUser = jsonResult;
+    if (result.ok) {
+      dispatch(registerUserSuccess(newUser));
+    } else {
+      throw new Error(jsonResult.message);
+    }
   } catch (error) {
     dispatch(registerUserFailure(error));
   }
