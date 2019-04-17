@@ -45,7 +45,7 @@ const PostsList = (props) => {
             id={post.id}
             key={post.id}
             imageUrl={post.imageUrl}
-            upvotes={post.upvotes}
+            upvotes={post.upvotes.length}
             userId={post.userId}
             description={post.description}
             postName={post.postName}
