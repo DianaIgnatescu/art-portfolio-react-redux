@@ -17,74 +17,89 @@ import AboutPage from './components/AboutPage';
 import ContactPage from './components/ContactPage';
 import Footer from './components/Footer';
 
-const App = ({
-  state, dispatchFetchAllPosts, dispatchLoginRequest,
-  dispatchDeletePost, dispatchLogout, dispatchShowPostModal, dispatchUpdatePost,
-  dispatchHidePostModal, dispatchCreatePost, dispatchMakePostModalEditable,
-  dispatchMakePostModalUneditable, dispatchRegisterUser,
-}) => (
-  <div className="App">
-    <NavBar loggedIn={Boolean(state.authToken)} />
-    <Route
-      exact
-      path="/home"
-      render={props => (
-        <HomePage
-          {...props}
-          posts={state.posts}
-          fetchAllPosts={dispatchFetchAllPosts}
-          showPostModal={dispatchShowPostModal}
-          createPost={dispatchCreatePost}
-          updatePost={dispatchUpdatePost}
-          deletePost={dispatchDeletePost}
-          hidePostModal={dispatchHidePostModal}
-          shownPostModal={state.shownPostModal.id}
-          isEditable={state.shownPostModal.isEditable}
-          loggedIn={Boolean(state.authToken)}
-          makePostModalEditable={dispatchMakePostModalEditable}
-          makePostModalUneditable={dispatchMakePostModalUneditable}
-          username={state.currentUser.username}
-          email={state.currentUser.email}
-          userId={state.currentUser.userId}
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.props = props;
+  }
+
+  componentWillMount() {
+    const { dispatchFetchAllPosts } = this.props;
+    dispatchFetchAllPosts();
+  }
+
+  render() {
+    const {
+      state, dispatchFetchAllPosts, dispatchLoginRequest,
+      dispatchDeletePost, dispatchLogout, dispatchShowPostModal, dispatchUpdatePost,
+      dispatchHidePostModal, dispatchCreatePost, dispatchMakePostModalEditable,
+      dispatchMakePostModalUneditable, dispatchRegisterUser,
+    } = this.props;
+    return (
+      <div className="App">
+        <NavBar loggedIn={Boolean(state.authToken)} />
+        <Route
+          exact
+          path="/home"
+          render={props => (
+            <HomePage
+              {...props}
+              posts={state.posts}
+              fetchAllPosts={dispatchFetchAllPosts}
+              showPostModal={dispatchShowPostModal}
+              createPost={dispatchCreatePost}
+              updatePost={dispatchUpdatePost}
+              deletePost={dispatchDeletePost}
+              hidePostModal={dispatchHidePostModal}
+              shownPostModal={state.shownPostModal.id}
+              isEditable={state.shownPostModal.isEditable}
+              loggedIn={Boolean(state.authToken)}
+              makePostModalEditable={dispatchMakePostModalEditable}
+              makePostModalUneditable={dispatchMakePostModalUneditable}
+              username={state.currentUser.username}
+              email={state.currentUser.email}
+              userId={state.currentUser.userId}
+            />
+          )}
         />
-      )}
-    />
-    <Route path="/about" render={props => <AboutPage {...props} />} />
-    <Route path="/contact" render={props => <ContactPage {...props} />} />
-    <Route
-      path="/login"
-      render={props => (
-        <Login
-          {...props}
-          loggedIn={Boolean(state.authToken)}
-          posts={state.authToken}
-          loginRequest={dispatchLoginRequest}
+        <Route path="/about" render={props => <AboutPage {...props} />} />
+        <Route path="/contact" render={props => <ContactPage {...props} />} />
+        <Route
+          path="/login"
+          render={props => (
+            <Login
+              {...props}
+              loggedIn={Boolean(state.authToken)}
+              posts={state.authToken}
+              loginRequest={dispatchLoginRequest}
+            />
+          )}
         />
-      )}
-    />
-    <Route
-      path="/sign-up"
-      render={props => (
-        <SignUp
-          {...props}
-          loggedIn={Boolean(state.authToken)}
-          registerUser={dispatchRegisterUser}
+        <Route
+          path="/sign-up"
+          render={props => (
+            <SignUp
+              {...props}
+              loggedIn={Boolean(state.authToken)}
+              registerUser={dispatchRegisterUser}
+            />
+          )}
         />
-      )}
-    />
-    <Route
-      path="/logout"
-      render={props => (
-        <Logout
-          {...props}
-          loggedIn={Boolean(state.authToken)}
-          logout={dispatchLogout}
+        <Route
+          path="/logout"
+          render={props => (
+            <Logout
+              {...props}
+              loggedIn={Boolean(state.authToken)}
+              logout={dispatchLogout}
+            />
+          )}
         />
-      )}
-    />
-    <Footer />
-  </div>
-);
+        <Footer />
+      </div>
+    );
+  }
+}
 
 App.propTypes = {
   state: PropTypes.shape().isRequired,
