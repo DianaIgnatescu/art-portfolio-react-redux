@@ -83,7 +83,10 @@ export const logout = () => ({
 });
 
 export const loginSuccess = (token, username, email, userId) => {
-  localStorage.setItem('token', token);
+  const currentUser = {
+    token, username, email, userId,
+  };
+  localStorage.setItem('currentUser', JSON.stringify(currentUser));
   return {
     type: LOGIN_SUCCESS,
     payload: {
@@ -423,7 +426,7 @@ export const fetchSingleUser = id => async (dispatch) => {
   } catch (error) {
     dispatch(fetchAllUsersFailure(error));
   }
-}
+};
 // =========END================ //
 
 

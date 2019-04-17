@@ -20,12 +20,11 @@ const store = createStore(rootReducer, applyMiddleware(
   thunk, logger,
 ));
 
-const token = localStorage.getItem('token');
-if (token) {
-  store.dispatch(actions.loginSuccess(token));
+const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+if (currentUser) {
+  store.dispatch(actions
+    .loginSuccess(currentUser.token, currentUser.username, currentUser.email, currentUser.userId));
 }
-
-store.dispatch(actions.fetchAllPosts());
 
 ReactDOM.render(
   <Provider store={store}>
