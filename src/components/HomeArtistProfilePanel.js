@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 import UserProfile from '../assets/artist.jpg';
@@ -55,10 +56,11 @@ const UserInfo = styled.div`
   
 `;
 
-const HomeArtistProfilePanel = () => (
+const HomeArtistProfilePanel = ({ username, email }) => (
   <UserInfo>
     <img src={UserProfile} alt="user" />
-    <h4>User name</h4>
+    <h4>{username}</h4>
+    <h5>{email}</h5>
     <p className="quote">Some description, very inspiring, sounds smart, love it.</p>
     <button type="button">146 Followers</button>
     <p>Elsewhere:</p>
@@ -76,5 +78,10 @@ const HomeArtistProfilePanel = () => (
     </a>
   </UserInfo>
 );
+
+HomeArtistProfilePanel.propTypes = {
+  username: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
+};
 
 export default HomeArtistProfilePanel;
