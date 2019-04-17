@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import {
   loginRequest, fetchAllPosts, createPost, deletePost, updatePost, logout, showPostModal,
-  hidePostModal, makePostModalEditable, makePostModalUneditable, registerUser,
+  hidePostModal, makePostModalEditable, makePostModalUneditable, registerUser, likePost, unlikePost,
 } from './store/actions';
 
 import NavBar from './components/NavBar';
@@ -34,7 +34,7 @@ class App extends React.Component {
       state, dispatchFetchAllPosts, dispatchLoginRequest,
       dispatchDeletePost, dispatchLogout, dispatchShowPostModal, dispatchUpdatePost,
       dispatchHidePostModal, dispatchCreatePost, dispatchMakePostModalEditable,
-      dispatchMakePostModalUneditable, dispatchRegisterUser,
+      dispatchMakePostModalUneditable, dispatchRegisterUser, dispatchLikePost, dispatchUnlikePost,
     } = this.props;
     return (
       <div className="App">
@@ -84,6 +84,8 @@ class App extends React.Component {
               username={state.currentUser.username}
               email={state.currentUser.email}
               userId={state.currentUser.userId}
+              likePost={dispatchLikePost}
+              unlikePost={dispatchUnlikePost}
             />
           )}
         />
@@ -139,6 +141,8 @@ App.propTypes = {
   dispatchMakePostModalEditable: PropTypes.func.isRequired,
   dispatchMakePostModalUneditable: PropTypes.func.isRequired,
   dispatchRegisterUser: PropTypes.func.isRequired,
+  dispatchLikePost: PropTypes.func.isRequired,
+  dispatchUnlikePost: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({ state });
@@ -154,4 +158,6 @@ export default withRouter(connect(mapStateToProps, {
   dispatchMakePostModalEditable: makePostModalEditable,
   dispatchMakePostModalUneditable: makePostModalUneditable,
   dispatchRegisterUser: registerUser,
+  dispatchLikePost: likePost,
+  dispatchUnlikePost: unlikePost,
 })(App));

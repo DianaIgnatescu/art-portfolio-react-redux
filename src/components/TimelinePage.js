@@ -5,7 +5,7 @@ import PostsList from './PostsList';
 
 const TimelinePage = ({
   loggedIn, posts, fetchAllPosts, showPostModal, hidePostModal, deletePost, updatePost,
-  shownPostModal, isEditable, makePostModalEditable, makePostModalUneditable,
+  shownPostModal, isEditable, makePostModalEditable, makePostModalUneditable, likePost, unlikePost,
 }) => {
   if (loggedIn) {
     return (
@@ -16,6 +16,8 @@ const TimelinePage = ({
         hidePostModal={hidePostModal}
         deletePost={deletePost}
         updatePost={updatePost}
+        likePost={likePost}
+        unlikePost={unlikePost}
         shownPostModal={shownPostModal}
         isEditable={false}
         makePostModalEditable={makePostModalEditable}
