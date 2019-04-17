@@ -108,11 +108,31 @@ const SignUp = ({ loggedIn }) => {
       <SignUpContainer>
         <SignUpForm>
           <h2>Art Portolio</h2>
+          <p>Username</p>
+          <input
+            name="username"
+            type="text"
+            placeholder="Your desired username..."
+          />
           <p>Email</p>
-          <input name="username" type="text" placeholder="Your Email..." />
+          <input
+            name="email"
+            type="email"
+            placeholder="Your Email..."
+          />
           <p>Password</p>
-          <input name="password" type="password" placeholder="Create Password..." />
-          <button type="button" className="sign-up-button">SIGN UP</button>
+          <input
+            name="password"
+            type="password"
+            placeholder="Create Password..."
+          />
+          <button
+            type="button"
+            className="sign-up-button"
+            onClick={event => handleSignUp(event, registerUser)}
+          >
+SIGN UP
+          </button>
           <div className="alternative-sign-up">
             <p className="center-sign-up">or</p>
             <AlternativeSignUpButtons>
@@ -122,7 +142,7 @@ const SignUp = ({ loggedIn }) => {
             </AlternativeSignUpButtons>
           </div>
           <p className="agreement">
-            By continuing, you agree to Art Portolio's
+            By continuing, you agree to Art Portolio&apos;s
             {' '}
             <span>Terms of Service</span>
 ,
@@ -140,6 +160,7 @@ const SignUp = ({ loggedIn }) => {
 
 SignUp.propTypes = {
   loggedIn: PropTypes.bool.isRequired,
+  registerUser: PropTypes.func.isRequired,
 };
 
 export default SignUp;
