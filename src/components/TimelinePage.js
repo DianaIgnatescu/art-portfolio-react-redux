@@ -20,7 +20,7 @@ const TimelinePage = ({
         isEditable={false}
         makePostModalEditable={makePostModalEditable}
         makePostModalUneditable={makePostModalUneditable}
-        loggedIn={loggedIn}
+        loggedIn={false}
       />
     );
   }
