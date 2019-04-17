@@ -9,6 +9,7 @@ const HomePage = (props) => {
   const {
     posts, fetchAllPosts, showPostModal, deletePost, createPost, updatePost, isEditable,
     makePostModalEditable, makePostModalUneditable, hidePostModal, shownPostModal, loggedIn,
+    username, email, userId,
   } = props;
 
   if (loggedIn) {
@@ -26,6 +27,9 @@ const HomePage = (props) => {
         makePostModalEditable={makePostModalEditable}
         makePostModalUneditable={makePostModalUneditable}
         loggedIn={loggedIn}
+        username={username}
+        email={email}
+        userId={userId}
       />
     );
   }
@@ -61,6 +65,8 @@ HomePage.propTypes = {
   hidePostModal: PropTypes.func.isRequired,
   shownPostModal: PropTypes.oneOfType([PropTypes.number, PropTypes.bool]).isRequired,
   loggedIn: PropTypes.bool.isRequired,
+  username: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
 };
 
 export default HomePage;
