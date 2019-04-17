@@ -99,10 +99,32 @@ const AlternativeSignUpButtons = styled.div`
   }
 `;
 
-const SignUp = ({ loggedIn }) => {
+const handleSignUp = (event, registerUser) => {
+  event.preventDefault();
+  // console.log(event.target);
+  // TODO: The code that gets these values from the form
+  let username = '';
+  let password = '';
+  let email = '';
+
+  event.target.parentNode.childNodes.forEach((childNode) => {
+    if (childNode.name === 'username') {
+      username = childNode.value;
+    } else if (childNode.name === 'password') {
+      password = childNode.value;
+    } else if (childNode.email === 'email') {
+      email = childNode.value;
+    }
+  });
+  console.log(username, password, email);
+  // registerUser(username, password, email);
+};
+
+const SignUp = ({ loggedIn, registerUser }) => {
   if (loggedIn) {
     return <Redirect to="/dashboard" />;
   }
+
   return (
     <div>
       <SignUpContainer>
