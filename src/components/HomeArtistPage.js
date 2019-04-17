@@ -88,6 +88,7 @@ HomeArtistPage.propTypes = {
   loggedIn: PropTypes.bool.isRequired,
   username: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
+  userId: PropTypes.number.isRequired,
 };
 
 export default HomeArtistPage;
