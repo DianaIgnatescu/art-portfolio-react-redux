@@ -119,7 +119,7 @@ const handleClick = loginRequest => (event) => {
 
 const Login = ({ loggedIn, loginRequest }) => {
   if (loggedIn) {
-    return <Redirect to="/home" />;
+    return <Redirect to="/" />;
   }
   return (
     <LoginWrapper>

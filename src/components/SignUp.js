@@ -119,7 +119,7 @@ const handleSignUp = (event, registerUser) => {
 
 const SignUp = ({ loggedIn, registerUser }) => {
   if (loggedIn) {
-    return <Redirect to="/dashboard" />;
+    return <Redirect to="/" />;
   }
 
   return (

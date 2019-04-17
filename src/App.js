@@ -40,7 +40,7 @@ class App extends React.Component {
         <NavBar loggedIn={Boolean(state.authToken)} />
         <Route
           exact
-          path="/home"
+          path="/"
           render={props => (
             <HomePage
               {...props}
