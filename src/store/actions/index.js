@@ -49,6 +49,14 @@ export const DELETE_POST = 'DELETE_POST';
 export const DELETE_POST_SUCCESS = 'DELETE_POST_SUCCESS';
 export const DELETE_POST_FAILURE = 'DELETE_POST_FAILURE';
 
+export const LIKE_POST = 'LIKE_POST';
+export const LIKE_POST_SUCCESS = 'LIKE_POST_SUCCESS';
+export const LIKE_POST_FAILURE = 'LIKE_POST_FAILURE';
+
+export const UNLIKE_POST = 'UNLIKE_POST';
+export const UNLIKE_POST_SUCCESS = 'UNLIKE_POST_SUCCESS';
+export const UNLIKE_POST_FAILURE = 'UNLIKE_POST_FAILURE';
+
 export const LOGOUT = 'LOGOUT';
 
 export const SHOW_POST_MODAL = 'SHOW_POST_MODAL';
@@ -351,6 +359,56 @@ export const deletePostFailure = (error) => {
   };
 };
 
+export const likePostSuccess = (likedPost) => {
+  if (!likedPost) {
+    throw new Error('likePostSuccess requires an updatedPost argument');
+  }
+  return {
+    type: LIKE_POST_SUCCESS,
+    payload: {
+      userId: Number(likedPost.userId),
+      postId: Number(likedPost.postId),
+    },
+  };
+};
+
+export const likePostFailure = (error) => {
+  if (!error) {
+    throw new Error('likePostFailure requires an error argument');
+  }
+  return {
+    type: LIKE_POST_FAILURE,
+    payload: {
+      error,
+    },
+  };
+};
+
+export const unlikePostSuccess = (unlikedPost) => {
+  if (!unlikedPost) {
+    throw new Error('unlikePostSuccess requires an updatedPost argument');
+  }
+  return {
+    type: UNLIKE_POST_SUCCESS,
+    payload: {
+      userId: Number(unlikedPost.userId),
+      postId: Number(unlikedPost.postId),
+    },
+  };
+};
+
+export const unlikePostFailure = (error) => {
+  if (!error) {
+    throw new Error('unlikePostFailure requires an error argument');
+  }
+  return {
+    type: UNLIKE_POST_FAILURE,
+    payload: {
+      error,
+    },
+  };
+};
+
 // Asynchronous action creators
 
 export const loginRequest = (username, password) => async (dispatch) => {
@@ -507,7 +565,7 @@ export const updatePost = (id, postName, imageUrl, description) => async (dispat
     const jsonResult = await result.json();
     if (result.ok) {
       const newPost = {
-        ...updatedPost, id, upvotes: 0, userId: 0,
+        ...updatedPost, id, upvotes: 0,
       };
       dispatch(updatePostSuccess(newPost));
     } else {
@@ -537,5 +595,53 @@ export const deletePost = id => async (dispatch, getState) => {
     }
   } catch (error) {
     dispatch(deletePostFailure(error));
+  }
+};
+
+export const likePost = (postId, userId) => async (dispatch, getState) => {
+  dispatch({ type: 'LIKE_POST' });
+  const likedPost = { postId, userId };
+  const config = {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+      authorization: getState().authToken,
+    },
+    body: JSON.stringify(likedPost),
+  };
+  try {
+    const result = await fetch(`${DOMAIN}/api/posts/upvote/${postId}/${userId}`, config);
+    const jsonResult = await result.json();
+    if (result.ok) {
+      dispatch(likePostSuccess(jsonResult));
+    } else {
+      throw new Error(jsonResult.message);
+    }
+  } catch (error) {
+    dispatch(likePostFailure(error));
+  }
+};
+
+export const unlikePost = (postId, userId) => async (dispatch, getState) => {
+  dispatch({ type: 'UNLIKE_POST' });
+  const unlikedPost = { postId, userId };
+  const config = {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+      authorization: getState().authToken,
+    },
+    body: JSON.stringify(unlikedPost),
+  };
+  try {
+    const result = await fetch(`${DOMAIN}/api/posts/downvote/${postId}/${userId}`, config);
+    const jsonResult = await result.json();
+    if (result.ok) {
+      dispatch(unlikePostSuccess(jsonResult));
+    } else {
+      throw new Error(jsonResult.message);
+    }
+  } catch (error) {
+    dispatch(unlikePostFailure(error));
   }
 };
