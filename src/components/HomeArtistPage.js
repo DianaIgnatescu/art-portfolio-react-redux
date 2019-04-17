@@ -2,9 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import PostsList from './PostsList';
 import HomeArtistProfilePanel from './HomeArtistProfilePanel';
 import HomeArtistCreatePost from './HomeArtistCreatePost';
+
+
 
 const HomeArtistPageWrapper = styled.div`
   max-width: 1000px;
@@ -53,20 +56,7 @@ const HomeArtistPage = (props) => {
             makePostModalUneditable={makePostModalUneditable}
             loggedIn={loggedIn}
           />
-          <h2>All Posts</h2>
-          <PostsList
-            posts={posts}
-            fetchAllPosts={fetchAllPosts}
-            showPostModal={showPostModal}
-            hidePostModal={hidePostModal}
-            deletePost={deletePost}
-            updatePost={updatePost}
-            shownPostModal={shownPostModal}
-            isEditable={isEditable}
-            makePostModalEditable={makePostModalEditable}
-            makePostModalUneditable={makePostModalUneditable}
-            loggedIn={loggedIn}
-          />
+          <h2><Link to="/timeline">View All Posts...</Link></h2>
         </div>
       </UserActions>
     </HomeArtistPageWrapper>
