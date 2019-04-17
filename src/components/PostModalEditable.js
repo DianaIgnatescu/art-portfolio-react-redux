@@ -234,7 +234,7 @@ Likes
           <div className="post-reactions">
             <i className="far fa-heart" />
             <p>
-              {post.upvotes}
+              {post.upvotes.length}
               {' '}
 Likes
               {' '}
