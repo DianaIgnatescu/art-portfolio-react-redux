@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import {
   loginRequest, fetchAllPosts, createPost, deletePost, updatePost, logout, showPostModal,
-  hidePostModal, makePostModalEditable, makePostModalUneditable,
+  hidePostModal, makePostModalEditable, makePostModalUneditable, registerUser,
 } from './store/actions';
 
 import NavBar from './components/NavBar';
@@ -21,7 +21,7 @@ const App = ({
   state, dispatchFetchAllPosts, dispatchLoginRequest,
   dispatchDeletePost, dispatchLogout, dispatchShowPostModal, dispatchUpdatePost,
   dispatchHidePostModal, dispatchCreatePost, dispatchMakePostModalEditable,
-  dispatchMakePostModalUneditable,
+  dispatchMakePostModalUneditable, dispatchRegisterUser,
 }) => (
   <div className="App">
     <NavBar loggedIn={Boolean(state.authToken)} />
@@ -68,6 +68,7 @@ const App = ({
         <SignUp
           {...props}
           loggedIn={Boolean(state.authToken)}
+          registerUser={dispatchRegisterUser}
         />
       )}
     />
@@ -97,6 +98,7 @@ App.propTypes = {
   dispatchHidePostModal: PropTypes.func.isRequired,
   dispatchMakePostModalEditable: PropTypes.func.isRequired,
   dispatchMakePostModalUneditable: PropTypes.func.isRequired,
+  dispatchRegisterUser: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({ state });
@@ -111,4 +113,5 @@ export default withRouter(connect(mapStateToProps, {
   dispatchHidePostModal: hidePostModal,
   dispatchMakePostModalEditable: makePostModalEditable,
   dispatchMakePostModalUneditable: makePostModalUneditable,
+  dispatchRegisterUser: registerUser,
 })(App));
