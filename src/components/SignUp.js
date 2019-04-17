@@ -101,8 +101,6 @@ const AlternativeSignUpButtons = styled.div`
 
 const handleSignUp = (event, registerUser) => {
   event.preventDefault();
-  // console.log(event.target);
-  // TODO: The code that gets these values from the form
   let username = '';
   let password = '';
   let email = '';
@@ -112,12 +110,11 @@ const handleSignUp = (event, registerUser) => {
       username = childNode.value;
     } else if (childNode.name === 'password') {
       password = childNode.value;
-    } else if (childNode.email === 'email') {
+    } else if (childNode.name === 'email') {
       email = childNode.value;
     }
   });
-  console.log(username, password, email);
-  // registerUser(username, password, email);
+  registerUser(username, password, email);
 };
 
 const SignUp = ({ loggedIn, registerUser }) => {
