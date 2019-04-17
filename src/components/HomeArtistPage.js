@@ -28,15 +28,32 @@ const UserActions = styled.div`
 const HomeArtistPage = (props) => {
   const {
     posts, fetchAllPosts, showPostModal, deletePost, updatePost, shownPostModal, hidePostModal,
-    createPost, isEditable, makePostModalEditable, makePostModalUneditable, loggedIn,
+    createPost, isEditable, makePostModalEditable, makePostModalUneditable, loggedIn, username,
+    email, userId,
   } = props;
+  const userPosts = posts.filter(post => post.userId === userId);
 
   return (
     <HomeArtistPageWrapper>
-      <HomeArtistProfilePanel />
+      <HomeArtistProfilePanel username={username} email={email} />
       <UserActions>
         <HomeArtistCreatePost createPost={createPost} />
         <div className="artist-post-list">
+          <h2>Your Posts</h2>
+          <PostsList
+            posts={userPosts}
+            fetchAllPosts={fetchAllPosts}
+            showPostModal={showPostModal}
+            hidePostModal={hidePostModal}
+            deletePost={deletePost}
+            updatePost={updatePost}
+            shownPostModal={shownPostModal}
+            isEditable={isEditable}
+            makePostModalEditable={makePostModalEditable}
+            makePostModalUneditable={makePostModalUneditable}
+            loggedIn={loggedIn}
+          />
+          <h2>All Posts</h2>
           <PostsList
             posts={posts}
             fetchAllPosts={fetchAllPosts}
@@ -69,6 +86,8 @@ HomeArtistPage.propTypes = {
   makePostModalEditable: PropTypes.func.isRequired,
   makePostModalUneditable: PropTypes.func.isRequired,
   loggedIn: PropTypes.bool.isRequired,
+  username: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
 };
 
 export default HomeArtistPage;
