@@ -82,12 +82,15 @@ export const logout = () => ({
   type: LOGOUT,
 });
 
-export const loginSuccess = (token) => {
+export const loginSuccess = (token, username, email, userId) => {
   localStorage.setItem('token', token);
   return {
     type: LOGIN_SUCCESS,
     payload: {
+      userId,
+      email,
       token,
+      username,
     },
   };
 };
@@ -362,7 +365,8 @@ export const loginRequest = (username, password) => async (dispatch) => {
     if (result.status === 403) {
       throw new Error(jsonResult.error);
     }
-    dispatch(loginSuccess(jsonResult.token));
+    dispatch(loginSuccess(jsonResult.token, jsonResult.username,
+      jsonResult.email, jsonResult.userId));
   } catch (error) {
     dispatch(loginFailure(error.message));
   }
