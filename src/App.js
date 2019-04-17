@@ -43,6 +43,9 @@ const App = ({
           loggedIn={Boolean(state.authToken)}
           makePostModalEditable={dispatchMakePostModalEditable}
           makePostModalUneditable={dispatchMakePostModalUneditable}
+          username={state.currentUser.username}
+          email={state.currentUser.email}
+          userId={state.currentUser.userId}
         />
       )}
     />
