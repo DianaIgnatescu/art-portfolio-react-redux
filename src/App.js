@@ -15,6 +15,7 @@ import SignUp from './components/SignUp';
 import HomePage from './components/HomePage';
 import AboutPage from './components/AboutPage';
 import ContactPage from './components/ContactPage';
+import TimelinePage from './components/TimelinePage';
 import Footer from './components/Footer';
 
 class App extends React.Component {
@@ -53,6 +54,30 @@ class App extends React.Component {
               hidePostModal={dispatchHidePostModal}
               shownPostModal={state.shownPostModal.id}
               isEditable={state.shownPostModal.isEditable}
+              loggedIn={Boolean(state.authToken)}
+              makePostModalEditable={dispatchMakePostModalEditable}
+              makePostModalUneditable={dispatchMakePostModalUneditable}
+              username={state.currentUser.username}
+              email={state.currentUser.email}
+              userId={state.currentUser.userId}
+            />
+          )}
+        />
+        <Route
+          exact
+          path="/timeline"
+          render={props => (
+            <TimelinePage
+              {...props}
+              posts={state.posts}
+              fetchAllPosts={dispatchFetchAllPosts}
+              showPostModal={dispatchShowPostModal}
+              createPost={dispatchCreatePost}
+              updatePost={dispatchUpdatePost}
+              deletePost={dispatchDeletePost}
+              hidePostModal={dispatchHidePostModal}
+              shownPostModal={state.shownPostModal.id}
+              isEditable={false}
               loggedIn={Boolean(state.authToken)}
               makePostModalEditable={dispatchMakePostModalEditable}
               makePostModalUneditable={dispatchMakePostModalUneditable}
