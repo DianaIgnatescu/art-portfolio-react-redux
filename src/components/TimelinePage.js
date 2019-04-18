@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link, Redirect } from 'react-router-dom';
 
 import PostsList from './PostsList';
@@ -6,6 +7,7 @@ import PostsList from './PostsList';
 const TimelinePage = ({
   loggedIn, posts, fetchAllPosts, showPostModal, hidePostModal, deletePost, updatePost,
   shownPostModal, isEditable, makePostModalEditable, makePostModalUneditable, likePost, unlikePost,
+  userId,
 }) => {
   if (loggedIn) {
     return (
@@ -23,10 +25,16 @@ const TimelinePage = ({
         makePostModalEditable={makePostModalEditable}
         makePostModalUneditable={makePostModalUneditable}
         loggedIn={false}
+        userId={userId}
       />
     );
   }
   return <Redirect to="/home" />;
 };
+
+// TimelinePage.propTypes = {
+//   loggedIn, posts, fetchAllPosts, showPostModal, hidePostModal, deletePost, updatePost,
+//   shownPostModal, isEditable, makePostModalEditable, makePostModalUneditable, likePost, unlikePost,
+// };
 
 export default TimelinePage;

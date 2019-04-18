@@ -7,7 +7,7 @@ import PostModalUneditable from './PostModalUneditable';
 const PostModal = (props) => {
   const {
     shownPostModal, posts, hidePostModal, deletePost, isEditable, makePostModalEditable,
-    makePostModalUneditable, updatePost, loggedIn,
+    makePostModalUneditable, updatePost, loggedIn, userId, likePost, unlikePost,
   } = props;
 
   if (loggedIn && shownPostModal) {
@@ -31,6 +31,10 @@ const PostModal = (props) => {
         posts={posts}
         shownPostModal={shownPostModal}
         hidePostModal={hidePostModal}
+        isLiked={posts.find(post => post.id === shownPostModal).upvotes.includes(userId)}
+        likePost={likePost}
+        unlikePost={unlikePost}
+        userId={userId}
       />
     );
   }
