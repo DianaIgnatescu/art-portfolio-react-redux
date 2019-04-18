@@ -1,4 +1,5 @@
 const DOMAIN = 'https://art-portfolio-project-back-end.herokuapp.com';
+// const DOMAIN = 'http://localhost:5000';
 // === ACTION TYPES ==== //
 
 export const FETCH_ALL_USERS = 'FETCH_ALL_USERS';
