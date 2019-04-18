@@ -96,6 +96,13 @@ h4 {
   font-size: 1.8rem;
 }
 
+h5 {
+  font-size: 1.6rem;
+  padding: 15px;
+  text-align: center;
+  color: #E19870;
+}
+
 a {
   font-size: 1.6rem;
   text-decoration: none;
@@ -111,7 +118,6 @@ a:hover {
 span {
   font-size: 1.6rem;
 }
-
 
 p {
   font-family: 'Roboto', sans-serif;

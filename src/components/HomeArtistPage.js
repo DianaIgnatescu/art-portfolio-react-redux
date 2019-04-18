@@ -39,6 +39,9 @@ const ArtistPostList = styled.div`
     max-width: 100%;
     margin: 15px;
   }
+  a {
+  font-size: 3rem;
+  }
 `;
 
 const HomeArtistPage = (props) => {
