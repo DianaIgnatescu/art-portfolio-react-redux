@@ -592,7 +592,7 @@ export const likePost = (postId, userId) => async (dispatch, getState) => {
     body: JSON.stringify(likedPost),
   };
   try {
-    const result = await fetch(`${DOMAIN}/api/posts/upvote/${postId}/${userId}`, config);
+    const result = await fetch(`${DOMAIN}/api/posts/upvote/${postId}`, config);
     const jsonResult = await result.json();
     if (result.ok) {
       dispatch(likePostSuccess(jsonResult));
@@ -616,7 +616,7 @@ export const unlikePost = (postId, userId) => async (dispatch, getState) => {
     body: JSON.stringify(unlikedPost),
   };
   try {
-    const result = await fetch(`${DOMAIN}/api/posts/downvote/${postId}/${userId}`, config);
+    const result = await fetch(`${DOMAIN}/api/posts/downvote/${postId}`, config);
     const jsonResult = await result.json();
     if (result.ok) {
       dispatch(unlikePostSuccess(jsonResult));
