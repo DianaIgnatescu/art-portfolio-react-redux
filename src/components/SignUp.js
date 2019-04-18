@@ -115,6 +115,23 @@ const handleSignUp = (event, registerUser) => {
     }
   });
   registerUser(username, password, email);
+
+  event.target.parentNode.childNodes.forEach((childNode) => {
+    if (childNode.name === 'username') {
+      // eslint-disable-next-line no-param-reassign
+      childNode.value = '';
+    } else if (childNode.name === 'password') {
+      // eslint-disable-next-line no-param-reassign
+      childNode.value = '';
+    } else if (childNode.name === 'email') {
+      // eslint-disable-next-line no-param-reassign
+      childNode.value = '';
+    }
+    if (childNode.getAttribute('id') === 'result-message') {
+      // eslint-disable-next-line no-param-reassign
+      childNode.textContent = 'Successfully registered. Please log in to continue.';
+    }
+  });
 };
 
 const SignUp = ({ loggedIn, registerUser }) => {
@@ -145,6 +162,7 @@ const SignUp = ({ loggedIn, registerUser }) => {
             type="password"
             placeholder="Create Password..."
           />
+          <p id="result-message"></p>
           <button
             type="button"
             className="sign-up-button"
