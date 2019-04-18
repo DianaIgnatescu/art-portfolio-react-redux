@@ -518,7 +518,7 @@ export const createPost = (postName, imageUrl, description) => async (dispatch, 
   try {
     const result = await fetch(`${DOMAIN}/api/posts`, config);
     const jsonResult = await result.json();
-    const newPost = { ...jsonResult, upvotes: [] };
+    const newPost = { ...jsonResult };
     if (result.ok) {
       dispatch(createPostSuccess(newPost));
     } else {
@@ -548,9 +548,7 @@ export const updatePost = (id, postName, imageUrl, description) => async (dispat
     const result = await fetch(`${DOMAIN}/api/posts/${id}`, config);
     const jsonResult = await result.json();
     if (result.ok) {
-      const newPost = {
-        ...updatedPost, id, upvotes: 0,
-      };
+      const newPost = { ...jsonResult };
       dispatch(updatePostSuccess(newPost));
     } else {
       throw new Error(jsonResult.message);
