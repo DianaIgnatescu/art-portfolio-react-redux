@@ -112,7 +112,7 @@ export const loginFailure = error => ({
     error,
   },
 });
-// ======= ADDED USERS ACTIONS ======== //
+
 export const fetchSingleSuccess = (user) => {
   if (!user) {
     throw new Error('fetchSingleUserSuccess requires a user argument');
@@ -233,8 +233,6 @@ export const deleteUserFailure = (error) => {
   };
 };
 
-// ==========END ============ //
-
 export const fetchAllPostsSuccess = (posts) => {
   if (!posts) {
     throw new Error('fetchAllPostsSuccess requires a posts argument');
@@ -259,8 +257,6 @@ export const fetchAllPostsFailure = (error) => {
   };
 };
 
-// ======== FETCH POSTS FROM A SPECIFIC USER ========= //
-
 export const fetchPostsFromUserSuccess = (posts) => {
   if (!posts) {
     throw new Error('fetchPostsFromUserSuccess requires a posts argument');
@@ -284,8 +280,6 @@ export const fetchPostsFromUserFailure = (error) => {
     },
   };
 };
-
-// =========END ==========
 
 export const createPostSuccess = (newPost) => {
   if (!newPost) {
@@ -433,8 +427,6 @@ export const loginRequest = (username, password) => async (dispatch) => {
   }
 };
 
-// ======= ADDED ASYNC ACTION CREATORS FOR USERS ======= //
-
 export const registerUser = (username, password, email) => async (dispatch) => {
   dispatch({ type: REGISTER_USER });
   const user = {
@@ -485,8 +477,6 @@ export const fetchSingleUser = id => async (dispatch) => {
     dispatch(fetchAllUsersFailure(error));
   }
 };
-// =========END================ //
-
 
 export const fetchAllPosts = () => async (dispatch) => {
   dispatch({ type: FETCH_ALL_POSTS });
@@ -499,8 +489,6 @@ export const fetchAllPosts = () => async (dispatch) => {
   }
 };
 
-// ====== ASYNC FOR FETCH POSTS FROM USER ======= //
-
 export const fetchPostsFromUser = userId => async (dispatch) => {
   dispatch({ type: FETCH_POSTS_FROM_USER });
   try {
@@ -511,8 +499,6 @@ export const fetchPostsFromUser = userId => async (dispatch) => {
     dispatch(fetchPostsFromUserFailure(error));
   }
 };
-// ======= END ======== //
-
 
 export const createPost = (postName, imageUrl, description) => async (dispatch, getState) => {
   dispatch({ type: CREATE_POST });
