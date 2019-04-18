@@ -99,20 +99,91 @@ const AlternativeSignUpButtons = styled.div`
   }
 `;
 
-const SignUp = ({ loggedIn }) => {
-  if (loggedIn) {
-    return <Redirect to="/dashboard" />;
+const handleSignUp = (event, registerUser) => {
+  event.preventDefault();
+  let username = '';
+  let password = '';
+  let email = '';
+
+  event.target.parentNode.childNodes.forEach((childNode) => {
+    if (childNode.name === 'username') {
+      username = childNode.value;
+    } else if (childNode.name === 'password') {
+      password = childNode.value;
+    } else if (childNode.name === 'email') {
+      email = childNode.value;
+    }
+  });
+  let blank = false;
+  if (username && password && email) {
+    registerUser(username, password, email);
+  } else {
+    blank = true;
   }
+
+  if (blank) {
+    event.target.parentNode.childNodes.forEach((childNode) => {
+      if (childNode.getAttribute('id') === 'result-message') {
+        // eslint-disable-next-line no-param-reassign
+        childNode.textContent = 'Please fill in all required fields.';
+      }
+    });
+  } else {
+    event.target.parentNode.childNodes.forEach((childNode) => {
+      if (childNode.getAttribute('id') === 'result-message') {
+        // eslint-disable-next-line no-param-reassign
+        childNode.textContent = 'Successfully registered. Please log in to continue.';
+      }
+      if (childNode.name === 'username') {
+        // eslint-disable-next-line no-param-reassign
+        childNode.value = '';
+      } else if (childNode.name === 'password') {
+        // eslint-disable-next-line no-param-reassign
+        childNode.value = '';
+      } else if (childNode.name === 'email') {
+        // eslint-disable-next-line no-param-reassign
+        childNode.value = '';
+      }
+    });
+  }
+};
+
+const SignUp = ({ loggedIn, registerUser }) => {
+  if (loggedIn) {
+    return <Redirect to="/" />;
+  }
+
   return (
     <div>
       <SignUpContainer>
         <SignUpForm>
           <h2>Art Portolio</h2>
+          <p>Username</p>
+          <input
+            name="username"
+            type="text"
+            placeholder="Your desired username..."
+          />
           <p>Email</p>
-          <input name="username" type="text" placeholder="Your Email..." />
+          <input
+            name="email"
+            type="email"
+            placeholder="Your Email..."
+          />
           <p>Password</p>
-          <input name="password" type="password" placeholder="Create Password..." />
-          <button type="button" className="sign-up-button">SIGN UP</button>
+          <input
+            name="password"
+            type="password"
+            placeholder="Create Password..."
+          />
+          <p id="result-message" />
+          <button
+            type="button"
+            className="sign-up-button"
+            onClick={event => handleSignUp(event, registerUser)}
+          >
+SIGN UP
+          </button>
           <div className="alternative-sign-up">
             <p className="center-sign-up">or</p>
             <AlternativeSignUpButtons>
@@ -122,7 +193,7 @@ const SignUp = ({ loggedIn }) => {
             </AlternativeSignUpButtons>
           </div>
           <p className="agreement">
-            By continuing, you agree to Art Portolio's
+            By continuing, you agree to Art Portolio&apos;s
             {' '}
             <span>Terms of Service</span>
 ,
@@ -140,6 +211,7 @@ const SignUp = ({ loggedIn }) => {
 
 SignUp.propTypes = {
   loggedIn: PropTypes.bool.isRequired,
+  registerUser: PropTypes.func.isRequired,
 };
 
 export default SignUp;

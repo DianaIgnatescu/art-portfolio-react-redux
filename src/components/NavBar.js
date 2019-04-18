@@ -61,10 +61,10 @@ const NavigationContainer = styled.div`
 const Navbar = ({ loggedIn }) => (
   <NavBarWrapper>
     <NavigationContainer>
-      <Link to="/home" className="logo">Art Portolio </Link>
+      <Link to="/" className="logo">Art Portolio </Link>
       <nav>
         <div className="nav-links">
-          <NavLink to="/home">Home</NavLink>
+          <NavLink to="/">Home</NavLink>
           <NavLink to="/about">About</NavLink>
           <NavLink to="/contact">Contact</NavLink>
         </div>

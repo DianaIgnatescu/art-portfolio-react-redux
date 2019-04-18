@@ -2,9 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import PostsList from './PostsList';
 import HomeArtistProfilePanel from './HomeArtistProfilePanel';
 import HomeArtistCreatePost from './HomeArtistCreatePost';
+
+
 
 const HomeArtistPageWrapper = styled.div`
   max-width: 1000px;
@@ -18,27 +21,46 @@ const HomeArtistPageWrapper = styled.div`
 `;
 
 const UserActions = styled.div`
-  max-width: 70%;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  @media (max-width: 500px) {
+    width: 92%;
+    margin: 4%;
+  }
+  h2 {
+  padding-top: 20px;
+  }
+`;
+
+const ArtistPostList = styled.div`
+  width: 100%;
   @media (max-width: 500px) {
     max-width: 100%;
     margin: 15px;
+  }
+  a {
+  font-size: 3rem;
   }
 `;
 
 const HomeArtistPage = (props) => {
   const {
     posts, fetchAllPosts, showPostModal, deletePost, updatePost, shownPostModal, hidePostModal,
-    createPost, isEditable, makePostModalEditable, makePostModalUneditable, loggedIn,
+    createPost, isEditable, makePostModalEditable, makePostModalUneditable, loggedIn, username,
+    email, userId,
   } = props;
+  const userPosts = posts.filter(post => post.userId === userId);
 
   return (
     <HomeArtistPageWrapper>
-      <HomeArtistProfilePanel />
+      <HomeArtistProfilePanel username={username} email={email} />
       <UserActions>
-        <HomeArtistCreatePost createPost={createPost} />
-        <div className="artist-post-list">
+        <HomeArtistCreatePost createPost={createPost} fetchAllPosts={fetchAllPosts} />
+        <ArtistPostList>
+          <h2>Your Posts</h2>
           <PostsList
-            posts={posts}
+            posts={userPosts}
             fetchAllPosts={fetchAllPosts}
             showPostModal={showPostModal}
             hidePostModal={hidePostModal}
@@ -50,7 +72,8 @@ const HomeArtistPage = (props) => {
             makePostModalUneditable={makePostModalUneditable}
             loggedIn={loggedIn}
           />
-        </div>
+          <h2><Link to="/timeline">View All Posts...</Link></h2>
+        </ArtistPostList>
       </UserActions>
     </HomeArtistPageWrapper>
   );
@@ -69,6 +92,9 @@ HomeArtistPage.propTypes = {
   makePostModalEditable: PropTypes.func.isRequired,
   makePostModalUneditable: PropTypes.func.isRequired,
   loggedIn: PropTypes.bool.isRequired,
+  username: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
+  userId: PropTypes.number.isRequired,
 };
 
 export default HomeArtistPage;

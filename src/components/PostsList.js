@@ -24,7 +24,7 @@ const PostListContainer = styled.div`
 const PostsList = (props) => {
   const {
     posts, deletePost, updatePost, showPostModal, shownPostModal, hidePostModal, isEditable,
-    makePostModalEditable, makePostModalUneditable, loggedIn,
+    makePostModalEditable, makePostModalUneditable, loggedIn, userId, likePost, unlikePost,
   } = props;
   return (
     <PostsListWrapper>
@@ -36,16 +36,19 @@ const PostsList = (props) => {
           hidePostModal={hidePostModal}
           deletePost={deletePost}
           updatePost={updatePost}
+          likePost={likePost}
+          unlikePost={unlikePost}
           makePostModalEditable={makePostModalEditable}
           makePostModalUneditable={makePostModalUneditable}
           loggedIn={loggedIn}
+          userId={userId}
         />
         {posts.map(post => (
           <Post
             id={post.id}
-            key={post.id}
+            key={`post-view-${post.id}`}
             imageUrl={post.imageUrl}
-            upvotes={post.upvotes}
+            upvotes={post.upvotes.length}
             userId={post.userId}
             description={post.description}
             postName={post.postName}

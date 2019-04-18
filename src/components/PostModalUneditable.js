@@ -79,6 +79,14 @@ const PostModalUneditableContainer = styled.div`
   }
 `;
 
+const handleLike = (userId, postId, likePost) => {
+  return () => likePost(postId, userId);
+};
+
+const handleUnlike = (userId, postId, unlikePost) => {
+  return () => unlikePost(postId, userId);
+};
+
 const handleClick = hidePostModal => (event) => {
   event.preventDefault();
   hidePostModal();
@@ -86,7 +94,7 @@ const handleClick = hidePostModal => (event) => {
 
 const PostModalUneditable = (props) => {
   const {
-    shownPostModal, posts, hidePostModal,
+    shownPostModal, posts, hidePostModal, isLiked, likePost, unlikePost, userId,
   } = props;
 
   const post = posts.find(aPost => aPost.id === shownPostModal);
@@ -96,9 +104,10 @@ const PostModalUneditable = (props) => {
         <button type="button" onClick={handleClick(hidePostModal)}>X</button>
         <img src={post.imageUrl} alt="cannot display post" />
         <div className="post-reactions">
-          <i className="far fa-heart" />
+          {isLiked ? <i onClick={handleUnlike(userId, shownPostModal, unlikePost)} className="fas fa-heart" />
+            : <i onClick={handleLike(userId, shownPostModal, likePost)} className="far fa-heart" />}
           <p>
-            {post.upvotes}
+            {post.upvotes.length}
             {' '}
 Likes
             {' '}
@@ -115,6 +124,9 @@ PostModalUneditable.propTypes = {
   shownPostModal: PropTypes.oneOfType([PropTypes.number, PropTypes.bool]).isRequired,
   posts: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   hidePostModal: PropTypes.func.isRequired,
+  isLiked: PropTypes.bool.isRequired,
+  likePost: PropTypes.func.isRequired,
+  unlikePost: PropTypes.func.isRequired,
 };
 
 export default PostModalUneditable;
