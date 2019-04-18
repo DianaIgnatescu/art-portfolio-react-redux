@@ -46,7 +46,7 @@ const PostsList = (props) => {
         {posts.map(post => (
           <Post
             id={post.id}
-            key={post.id}
+            key={`post-view-${post.id}`}
             imageUrl={post.imageUrl}
             upvotes={post.upvotes.length}
             userId={post.userId}

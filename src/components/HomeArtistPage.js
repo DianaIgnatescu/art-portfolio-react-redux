@@ -21,7 +21,20 @@ const HomeArtistPageWrapper = styled.div`
 `;
 
 const UserActions = styled.div`
-  max-width: 70%;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  @media (max-width: 500px) {
+    width: 92%;
+    margin: 4%;
+  }
+  h2 {
+  padding-top: 20px;
+  }
+`;
+
+const ArtistPostList = styled.div`
+  width: 100%;
   @media (max-width: 500px) {
     max-width: 100%;
     margin: 15px;
@@ -40,8 +53,8 @@ const HomeArtistPage = (props) => {
     <HomeArtistPageWrapper>
       <HomeArtistProfilePanel username={username} email={email} />
       <UserActions>
-        <HomeArtistCreatePost createPost={createPost} />
-        <div className="artist-post-list">
+        <HomeArtistCreatePost createPost={createPost} fetchAllPosts={fetchAllPosts} />
+        <ArtistPostList>
           <h2>Your Posts</h2>
           <PostsList
             posts={userPosts}
@@ -57,7 +70,7 @@ const HomeArtistPage = (props) => {
             loggedIn={loggedIn}
           />
           <h2><Link to="/timeline">View All Posts...</Link></h2>
-        </div>
+        </ArtistPostList>
       </UserActions>
     </HomeArtistPageWrapper>
   );
