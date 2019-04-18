@@ -518,9 +518,7 @@ export const createPost = (postName, imageUrl, description) => async (dispatch, 
   try {
     const result = await fetch(`${DOMAIN}/api/posts`, config);
     const jsonResult = await result.json();
-    const newPost = {
-      ...post, id: jsonResult[0], upvotes: 0, userId: 1,
-    };
+    const newPost = { ...jsonResult, upvotes: [] };
     if (result.ok) {
       dispatch(createPostSuccess(newPost));
     } else {
