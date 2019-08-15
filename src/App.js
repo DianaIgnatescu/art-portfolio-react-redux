@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, withRouter, Switch } from 'react-router-dom';
+import styled from 'styled-components';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -11,7 +12,7 @@ import {
 import NavBar from './components/NavBar';
 import Login from './components/Login';
 import Logout from './components/Logout';
-import SignUp from './components/SignUp';
+import Register from './components/Register';
 import HomePage from './components/HomePage';
 import AboutPage from './components/AboutPage';
 import ContactPage from './components/ContactPage';
@@ -37,7 +38,7 @@ class App extends React.Component {
       dispatchMakePostModalUneditable, dispatchRegisterUser, dispatchLikePost, dispatchUnlikePost,
     } = this.props;
     return (
-      <div className="App">
+      <AppWrapper>
         <NavBar loggedIn={Boolean(state.authToken)} />
         <Switch>
           <Route
@@ -104,9 +105,9 @@ class App extends React.Component {
             )}
           />
           <Route
-            path="/sign-up"
+            path="/register"
             render={props => (
-              <SignUp
+              <Register
                 {...props}
                 loggedIn={Boolean(state.authToken)}
                 registerUser={dispatchRegisterUser}
@@ -125,7 +126,7 @@ class App extends React.Component {
           />
         </Switch>
         <Footer />
-      </div>
+      </AppWrapper>
     );
   }
 }
@@ -163,3 +164,10 @@ export default withRouter(connect(mapStateToProps, {
   dispatchLikePost: likePost,
   dispatchUnlikePost: unlikePost,
 })(App));
+
+const AppWrapper = styled.div`
+display: flex;
+min-height: 100vh;
+flex-direction: column;
+justify-content: space-between;
+`;
