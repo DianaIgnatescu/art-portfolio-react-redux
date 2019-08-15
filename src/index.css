@@ -64,6 +64,7 @@ code {
 
 * {
   box-sizing: border-box;
+  outline: none;
 }
 
 html {
@@ -119,7 +120,7 @@ span {
   font-size: 1.6rem;
 }
 
-p {
+p, label {
   font-family: 'Roboto', sans-serif;
   color: #BEBEBE;
   font-size: 1.8rem;

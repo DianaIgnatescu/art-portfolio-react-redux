@@ -5,6 +5,56 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { Redirect, Link } from 'react-router-dom';
 
+const handleClick = loginRequest => (event) => {
+  event.preventDefault();
+  let username = '';
+  let password = '';
+  event.target.parentNode.childNodes.forEach((childNode) => {
+    if (childNode.name === 'username') {
+      username = childNode.value;
+    } else if (childNode.name === 'password') {
+      password = childNode.value;
+    }
+  });
+  if (username && password) {
+    loginRequest(username, password);
+  }
+};
+
+const Login = ({ loggedIn, loginRequest }) => {
+  if (loggedIn) {
+    return <Redirect to="/" />;
+  }
+  return (
+    <LoginWrapper>
+      <div className="login">
+        <form className="login-form">
+          <h2>Art Portolio</h2>
+          <label>Username</label>
+          <input name="username" type="text" placeholder="Your Username..." />
+          <label>Password<span>Forgot password?</span></label>
+          <input name="password" type="password" placeholder="Your Password..." />
+          <button type="submit" className="login-button" onClick={handleClick(loginRequest)}>LOGIN</button>
+          <div className="alternative-login">
+            <p className="center-text">or login below</p>
+            <div className="alternative-login-buttons">
+              <button type="button">LOGIN WITH GOOGLE</button>
+            </div>
+          </div>
+          <div className="login-page-register">
+            <p>Need an account?<Link to="/sign-up">Sign up now!</Link></p>
+          </div>
+        </form>
+      </div>
+    </LoginWrapper>
+  );
+};
+
+Login.propTypes = {
+  loginRequest: PropTypes.func.isRequired,
+  loggedIn: PropTypes.bool.isRequired,
+};
+
 const LoginWrapper = styled.div`
   .login {
     max-width: 400px;
@@ -13,6 +63,7 @@ const LoginWrapper = styled.div`
     h2 {
       text-align: center;
       font-family: 'Julius Sans One', sans-serif;
+      padding-bottom: 1.5rem;
     }
     .login-form {
       padding: 20px;
@@ -30,7 +81,7 @@ const LoginWrapper = styled.div`
       }
       button {
         width: 100%;
-        margin: 20px 0;
+        margin: 5px 0;
         background: #E19870;
         border: none;
         height: 40px;
@@ -60,6 +111,7 @@ const LoginWrapper = styled.div`
         color: #BEBEBE;
         padding-left: 15px;
         background:#3e3b4f;
+        margin: 0.5rem 0 1.5rem 0;
         font-size: 1.8rem;
         &::placeholder {
         font-size: 1.8rem;
@@ -67,7 +119,8 @@ const LoginWrapper = styled.div`
       }
       .center-text {
         text-align: center;
-        padding-top: 20px;
+        //padding-top: 20px;
+        padding: 5px;
       }
       .alternative-login-buttons {
         display: flex;
@@ -76,7 +129,7 @@ const LoginWrapper = styled.div`
           flex-direction: column;
         }
         button {
-        max-width: 47%;
+        max-width: 100%;
         background: #676D85;
         color: #BEBEBE;
         &:hover {
@@ -100,59 +153,5 @@ const LoginWrapper = styled.div`
     }
   }
 `;
-
-const handleClick = loginRequest => (event) => {
-  event.preventDefault();
-  let username = '';
-  let password = '';
-  event.target.parentNode.childNodes.forEach((childNode) => {
-    if (childNode.name === 'username') {
-      username = childNode.value;
-    } else if (childNode.name === 'password') {
-      password = childNode.value;
-    }
-  });
-  if (username && password) {
-    loginRequest(username, password);
-  }
-};
-
-const Login = ({ loggedIn, loginRequest }) => {
-  if (loggedIn) {
-    return <Redirect to="/" />;
-  }
-  return (
-    <LoginWrapper>
-      <div className="login">
-        <form className="login-form">
-          <h2>Art Portolio</h2>
-          <p>Username</p>
-          <input name="username" type="text" placeholder="Your Username..." />
-          <p>Password<span>Forgot password?</span></p>
-          <input name="password" type="password" placeholder="Your Password..." />
-
-          <div className="alternative-login">
-            <p className="center-text">or sign in below</p>
-            <div className="alternative-login-buttons">
-              <button type="button">Twitter</button>
-              <button type="button">Facebook</button>
-            </div>
-          </div>
-
-          <button type="submit" className="login-button" onClick={handleClick(loginRequest)}>LOGIN</button>
-
-          <div className="login-page-register">
-            <p>Need an account?<Link to="/sign-up">Sign up now!</Link></p>
-          </div>
-        </form>
-      </div>
-    </LoginWrapper>
-  );
-};
-
-Login.propTypes = {
-  loginRequest: PropTypes.func.isRequired,
-  loggedIn: PropTypes.bool.isRequired,
-};
 
 export default Login;

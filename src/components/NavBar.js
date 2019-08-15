@@ -4,6 +4,36 @@ import styled from 'styled-components';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import PropTypes from 'prop-types';
 
+
+const NavBar = ({ loggedIn }) => (
+  <NavBarWrapper>
+    <NavigationContainer>
+      <Link to="/" className="logo">Aportfolio </Link>
+      <nav>
+        <div className="nav-links">
+          <NavLink exact to="/">Home</NavLink>
+          <NavLink to="/about">About</NavLink>
+          <NavLink to="/contact">Contact</NavLink>
+        </div>
+        {!loggedIn ? (
+          <div className="register">
+            <NavLink to="/register">Register</NavLink>
+            <NavLink to="/login">Login</NavLink>
+          </div>
+        ) : (
+          <div className="register">
+            <NavLink to="/logout">Logout</NavLink>
+          </div>
+        )}
+      </nav>
+    </NavigationContainer>
+  </NavBarWrapper>
+);
+
+NavBar.propTypes = {
+  loggedIn: PropTypes.bool.isRequired,
+};
+
 const NavBarWrapper = styled.div`
   background: #202330;
   width: 100vw;
@@ -19,13 +49,12 @@ const NavigationContainer = styled.div`
   display: flex;
   justify-content: space-between;
   .logo {
-      font-family: 'Julius Sans One', sans-serif;
-      font-size: 2rem;
-      @media (max-width: 500px) {
-        display: none;
-      }
-      // margin-left: 50px;
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 2rem;
+    @media (max-width: 500px) {
+      display: none;
     }
+  }
   nav {
     display: flex;
     justify-content: space-between;
@@ -58,33 +87,5 @@ const NavigationContainer = styled.div`
   }
 `;
 
-const Navbar = ({ loggedIn }) => (
-  <NavBarWrapper>
-    <NavigationContainer>
-      <Link to="/" className="logo">Art Portolio </Link>
-      <nav>
-        <div className="nav-links">
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="/about">About</NavLink>
-          <NavLink to="/contact">Contact</NavLink>
-        </div>
-        {!loggedIn ? (
-          <div className="register">
-            <NavLink to="/sign-up">Sign Up</NavLink>
-            <NavLink to="/login">Login</NavLink>
-          </div>
-        ) : (
-          <div className="register">
-            <NavLink to="/logout">Logout</NavLink>
-          </div>
-        )}
-      </nav>
-    </NavigationContainer>
-  </NavBarWrapper>
-);
 
-Navbar.propTypes = {
-  loggedIn: PropTypes.bool.isRequired,
-};
-
-export default Navbar;
+export default NavBar;

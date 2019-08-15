@@ -1,6 +1,26 @@
 import React from 'react';
 import styled from 'styled-components';
 
+const ContactPage = () => (
+  <ContactPageWrapper>
+    <ContactForm>
+      <h1>Contact Aportfolio</h1>
+      <p>
+        Use the form below to get in touch and we'll try our best to get to you as soon as possible.
+      </p>
+      <label>Full Name</label>
+      <input type="text" placeholder="Your Full Name..." />
+      <label>Email Address</label>
+      <input type="email" placeholder="Your Email Address..." />
+      <label>Subject</label>
+      <input type="text" placeholder="What is your question about?..." />
+      <label>Message</label>
+      <input type="message" placeholder="Be as detailed as you can..." />
+      <button type="button">Send Message</button>
+    </ContactForm>
+  </ContactPageWrapper>
+);
+
 const ContactPageWrapper = styled.div`
   padding: 80px 0;
 `;
@@ -10,7 +30,10 @@ const ContactForm = styled.form`
   margin: 0 auto;
   padding: 0 20px;
   h1 {
-    padding: 15px 0;
+    margin: 15px 0;
+  }
+  label {
+    padding: 1.5rem 0;
   }
   input {
     width: 100%;
@@ -21,6 +44,7 @@ const ContactForm = styled.form`
     font-size: 1.6rem;
     background:#3e3b4f;
     color: #BEBEBE;
+    margin: 5px 0 10px 0;
   }
   button {
     width: 200px;
@@ -34,6 +58,7 @@ const ContactForm = styled.form`
     background: #E19870;
     &:hover {
       cursor: pointer;
+      opacity: 0.8;
     }
     @media (max-width: 500px) {
       width: 100%;
@@ -43,28 +68,5 @@ const ContactForm = styled.form`
     padding: 15px 0 10px;
   }
 `;
-
-const ContactPage = () => (
-  <ContactPageWrapper>
-
-    <ContactForm>
-      <h1>Contact Art Portolio</h1>
-      <p>
-        Use the form below to get in touch. Chillwave scenester shoreditch, intelligentsia
-        sriracha swag blog. Man braid pickled fixie adaptogen meditation franzen.
-      </p>
-      <p>Full Name</p>
-      <input type="text" placeholder="Your Full Name..." />
-      <p>Email Address</p>
-      <input type="email" placeholder="Your Email Address..." />
-      <p>Subject</p>
-      <input type="text" placeholder="What is your question about?..." />
-      <p>Message</p>
-      <input type="message" placeholder="Be as detailed as you can..." />
-      <button type="button">Send Message</button>
-
-    </ContactForm>
-  </ContactPageWrapper>
-);
 
 export default ContactPage;

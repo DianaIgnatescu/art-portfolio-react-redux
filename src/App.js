@@ -1,5 +1,6 @@
 import React from 'react';
-import { Route, withRouter } from 'react-router-dom';
+import { Route, withRouter, Switch } from 'react-router-dom';
+import styled from 'styled-components';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
@@ -11,7 +12,7 @@ import {
 import NavBar from './components/NavBar';
 import Login from './components/Login';
 import Logout from './components/Logout';
-import SignUp from './components/SignUp';
+import Register from './components/Register';
 import HomePage from './components/HomePage';
 import AboutPage from './components/AboutPage';
 import ContactPage from './components/ContactPage';
@@ -37,93 +38,95 @@ class App extends React.Component {
       dispatchMakePostModalUneditable, dispatchRegisterUser, dispatchLikePost, dispatchUnlikePost,
     } = this.props;
     return (
-      <div className="App">
+      <AppWrapper>
         <NavBar loggedIn={Boolean(state.authToken)} />
-        <Route
-          exact
-          path="/"
-          render={props => (
-            <HomePage
-              {...props}
-              posts={state.posts}
-              fetchAllPosts={dispatchFetchAllPosts}
-              showPostModal={dispatchShowPostModal}
-              createPost={dispatchCreatePost}
-              updatePost={dispatchUpdatePost}
-              deletePost={dispatchDeletePost}
-              hidePostModal={dispatchHidePostModal}
-              shownPostModal={state.shownPostModal.id}
-              isEditable={state.shownPostModal.isEditable}
-              loggedIn={Boolean(state.authToken)}
-              makePostModalEditable={dispatchMakePostModalEditable}
-              makePostModalUneditable={dispatchMakePostModalUneditable}
-              username={state.currentUser.username}
-              email={state.currentUser.email}
-              userId={state.currentUser.userId}
-            />
-          )}
-        />
-        <Route
-          exact
-          path="/timeline"
-          render={props => (
-            <TimelinePage
-              {...props}
-              posts={state.posts}
-              fetchAllPosts={dispatchFetchAllPosts}
-              showPostModal={dispatchShowPostModal}
-              createPost={dispatchCreatePost}
-              updatePost={dispatchUpdatePost}
-              deletePost={dispatchDeletePost}
-              hidePostModal={dispatchHidePostModal}
-              shownPostModal={state.shownPostModal.id}
-              isEditable={false}
-              loggedIn={Boolean(state.authToken)}
-              makePostModalEditable={dispatchMakePostModalEditable}
-              makePostModalUneditable={dispatchMakePostModalUneditable}
-              username={state.currentUser.username}
-              email={state.currentUser.email}
-              userId={state.currentUser.userId}
-              likePost={dispatchLikePost}
-              unlikePost={dispatchUnlikePost}
-            />
-          )}
-        />
-        <Route path="/about" render={props => <AboutPage {...props} />} />
-        <Route path="/contact" render={props => <ContactPage {...props} />} />
-        <Route
-          path="/login"
-          render={props => (
-            <Login
-              {...props}
-              loggedIn={Boolean(state.authToken)}
-              posts={state.authToken}
-              loginRequest={dispatchLoginRequest}
-            />
-          )}
-        />
-        <Route
-          path="/sign-up"
-          render={props => (
-            <SignUp
-              {...props}
-              loggedIn={Boolean(state.authToken)}
-              registerUser={dispatchRegisterUser}
-            />
-          )}
-        />
-        <Route
-          path="/logout"
-          render={props => (
-            <Logout
-              {...props}
-              loggedIn={Boolean(state.authToken)}
-              logout={dispatchLogout}
-            />
-          )}
-        />
+        <Switch>
+          <Route
+            exact
+            path="/"
+            render={props => (
+              <HomePage
+                {...props}
+                posts={state.posts}
+                fetchAllPosts={dispatchFetchAllPosts}
+                showPostModal={dispatchShowPostModal}
+                createPost={dispatchCreatePost}
+                updatePost={dispatchUpdatePost}
+                deletePost={dispatchDeletePost}
+                hidePostModal={dispatchHidePostModal}
+                shownPostModal={state.shownPostModal.id}
+                isEditable={state.shownPostModal.isEditable}
+                loggedIn={Boolean(state.authToken)}
+                makePostModalEditable={dispatchMakePostModalEditable}
+                makePostModalUneditable={dispatchMakePostModalUneditable}
+                username={state.currentUser.username}
+                email={state.currentUser.email}
+                userId={state.currentUser.userId}
+              />
+            )}
+          />
+
+          <Route
+            path="/timeline"
+            render={props => (
+              <TimelinePage
+                {...props}
+                posts={state.posts}
+                fetchAllPosts={dispatchFetchAllPosts}
+                showPostModal={dispatchShowPostModal}
+                createPost={dispatchCreatePost}
+                updatePost={dispatchUpdatePost}
+                deletePost={dispatchDeletePost}
+                hidePostModal={dispatchHidePostModal}
+                shownPostModal={state.shownPostModal.id}
+                isEditable={false}
+                loggedIn={Boolean(state.authToken)}
+                makePostModalEditable={dispatchMakePostModalEditable}
+                makePostModalUneditable={dispatchMakePostModalUneditable}
+                username={state.currentUser.username}
+                email={state.currentUser.email}
+                userId={state.currentUser.userId}
+                likePost={dispatchLikePost}
+                unlikePost={dispatchUnlikePost}
+              />
+            )}
+          />
+          <Route exact path="/about" render={props => <AboutPage {...props} />} />
+          <Route exact path="/contact" render={props => <ContactPage {...props} />} />
+          <Route
+            path="/login"
+            render={props => (
+              <Login
+                {...props}
+                loggedIn={Boolean(state.authToken)}
+                posts={state.authToken}
+                loginRequest={dispatchLoginRequest}
+              />
+            )}
+          />
+          <Route
+            path="/register"
+            render={props => (
+              <Register
+                {...props}
+                loggedIn={Boolean(state.authToken)}
+                registerUser={dispatchRegisterUser}
+              />
+            )}
+          />
+          <Route
+            path="/logout"
+            render={props => (
+              <Logout
+                {...props}
+                loggedIn={Boolean(state.authToken)}
+                logout={dispatchLogout}
+              />
+            )}
+          />
+        </Switch>
         <Footer />
-      </div>
+      </AppWrapper>
     );
   }
 }
@@ -161,3 +164,10 @@ export default withRouter(connect(mapStateToProps, {
   dispatchLikePost: likePost,
   dispatchUnlikePost: unlikePost,
 })(App));
+
+const AppWrapper = styled.div`
+display: flex;
+min-height: 100vh;
+flex-direction: column;
+justify-content: space-between;
+`;
