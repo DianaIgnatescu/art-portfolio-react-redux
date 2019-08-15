@@ -2,6 +2,70 @@ import React from 'react';
 import styled from 'styled-components';
 import FeatureOne from '../assets/about-page/landing-page1.png';
 
+
+const AboutPageServices = () => (
+  <section className="services-wrapper">
+    <ServicesBreakdown>
+      <h2>Imagine reading a very exciting promise right about now.</h2>
+      <DetailedServices>
+        <Service>
+          <div className="service-image">
+            <img src={FeatureOne} alt="service" />
+          </div>
+          <div className="service-details">
+            <h2>Twee pabst gentrify literally squid pop-up woke kale chips.</h2>
+            <p>
+              Craft beer gluten-free you probably haven't heard of them keffiyeh single-origin
+              coffee green juice hashtag blue bottle. Swag pok pok lyft, gochujang normcore
+              skateboard subway tile man bun freegan venmo mumblecore portland crucifix franzen.
+            </p>
+            <button type="button">LEARN MORE →</button>
+          </div>
+        </Service>
+
+        <Service>
+          <div className="service-details">
+            <h2>Twee pabst gentrify literally squid pop-up woke kale chips.</h2>
+            <p>
+              Craft beer gluten-free you probably haven't heard of them keffiyeh single-origin
+              coffee green juice hashtag blue bottle. Swag pok pok lyft, gochujang normcore
+              skateboard subway tile man bun freegan venmo mumblecore portland crucifix franzen.
+            </p>
+            <button type="button">LEARN MORE →</button>
+          </div>
+          <img src={FeatureOne} alt="service" />
+        </Service>
+
+        <Service>
+          <img src={FeatureOne} alt="service" />
+          <div className="service-details">
+            <h2>Twee pabst gentrify literally squid pop-up woke kale chips.</h2>
+            <p>
+              Craft beer gluten-free you probably haven't heard of them keffiyeh single-origin
+              coffee green juice hashtag blue bottle. Swag pok pok lyft, gochujang normcore
+              skateboard subway tile man bun freegan venmo mumblecore portland crucifix franzen.
+            </p>
+            <button type="button">LEARN MORE →</button>
+          </div>
+        </Service>
+
+        <Service>
+          <div className="service-details">
+            <h2>Twee pabst gentrify literally squid pop-up woke kale chips.</h2>
+            <p>
+              Craft beer gluten-free you probably haven't heard of them keffiyeh single-origin
+              coffee green juice hashtag blue bottle. Swag pok pok lyft, gochujang normcore
+              skateboard subway tile man bun freegan venmo mumblecore portland crucifix franzen.
+            </p>
+            <button type="button">LEARN MORE →</button>
+          </div>
+          <img src={FeatureOne} alt="service" />
+        </Service>
+      </DetailedServices>
+    </ServicesBreakdown>
+  </section>
+);
+
 const ServicesBreakdown = styled.div`
   max-width: 800px;
   margin: 20px auto;
@@ -56,68 +120,5 @@ const Service = styled.div`
     }
   }
 `;
-
-const AboutPageServices = () => (
-  <section className="services-wrapper">
-    <ServicesBreakdown>
-      <h2>Imagine reading a very exciting promise right about now.</h2>
-      <DetailedServices>
-        <Service>
-          <div className="service-image">
-            <img src={FeatureOne} alt="service" />
-          </div>
-          <div className="service-details">
-            <h2>Twee pabst gentrify literally squid pop-up woke kale chips.</h2>
-            <p>
-              Craft beer gluten-free you probably haven't heard of them keffiyeh single-origin
-              coffee green juice hashtag blue bottle. Swag pok pok lyft, gochujang normcore
-              skateboard subway tile man bun freegan venmo mumblecore portland crucifix franzen.
-            </p>
-            <button type="button">LEARN MORE→</button>
-          </div>
-        </Service>
-
-        <Service>
-          <div className="service-details">
-            <h2>Twee pabst gentrify literally squid pop-up woke kale chips.</h2>
-            <p>
-              Craft beer gluten-free you probably haven't heard of them keffiyeh single-origin
-              coffee green juice hashtag blue bottle. Swag pok pok lyft, gochujang normcore
-              skateboard subway tile man bun freegan venmo mumblecore portland crucifix franzen.
-            </p>
-            <button type="button">LEARN MORE→</button>
-          </div>
-          <img src={FeatureOne} alt="service" />
-        </Service>
-
-        <Service>
-          <img src={FeatureOne} alt="service" />
-          <div className="service-details">
-            <h2>Twee pabst gentrify literally squid pop-up woke kale chips.</h2>
-            <p>
-              Craft beer gluten-free you probably haven't heard of them keffiyeh single-origin
-              coffee green juice hashtag blue bottle. Swag pok pok lyft, gochujang normcore
-              skateboard subway tile man bun freegan venmo mumblecore portland crucifix franzen.
-            </p>
-            <button type="button">LEARN MORE→</button>
-          </div>
-        </Service>
-
-        <Service>
-          <div className="service-details">
-            <h2>Twee pabst gentrify literally squid pop-up woke kale chips.</h2>
-            <p>
-              Craft beer gluten-free you probably haven't heard of them keffiyeh single-origin
-              coffee green juice hashtag blue bottle. Swag pok pok lyft, gochujang normcore
-              skateboard subway tile man bun freegan venmo mumblecore portland crucifix franzen.
-            </p>
-            <button type="button">LEARN MORE→</button>
-          </div>
-          <img src={FeatureOne} alt="service" />
-        </Service>
-      </DetailedServices>
-    </ServicesBreakdown>
-  </section>
-);
 
 export default AboutPageServices;

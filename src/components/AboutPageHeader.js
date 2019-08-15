@@ -2,6 +2,28 @@ import React from 'react';
 import styled from 'styled-components';
 import DownloadApp from '../assets/about-page/download-app.svg';
 
+
+const AboutPageHeader = () => (
+  <AboutHeader>
+    <div className="about-header-left">
+      <h1>We are Aportfolio</h1>
+      <p>
+        Microdosing distillery meggings roof party, tumblr wolf cronut drinking vinegar
+        tousled yuccie fixie raclette fanny pack.
+        Sustainable four dollar toast austin, scenester bushwick ramps
+        listicle hashtag DIY kinfolk pug.
+      </p>
+      <div className="cta-buttons">
+        <button type="button" className="bordered">Expore our Features</button>
+        <button type="button" className="filled">Download the app</button>
+      </div>
+    </div>
+    <div className="about-header-right">
+      <img src={DownloadApp} alt="download-app" />
+    </div>
+  </AboutHeader>
+);
+
 const AboutHeader = styled.section`
   max-width: 800px;
   display: flex;
@@ -61,25 +83,5 @@ const AboutHeader = styled.section`
   }
 `;
 
-const AboutPageHeader = () => (
-  <AboutHeader>
-    <div className="about-header-left">
-      <h1>We are Art Portolio</h1>
-      <p>
-        Microdosing distillery meggings roof party, tumblr wolf cronut drinking vinegar
-        tousled yuccie fixie raclette fanny pack.
-        Sustainable four dollar toast austin, scenester bushwick ramps
-        listicle hashtag DIY kinfolk pug.
-      </p>
-      <div className="cta-buttons">
-        <button type="button" className="bordered">Expore our Features</button>
-        <button type="button" className="filled">Download the app</button>
-      </div>
-    </div>
-    <div className="about-header-right">
-      <img src={DownloadApp} alt="download-app" />
-    </div>
-  </AboutHeader>
-);
 
 export default AboutPageHeader;

@@ -17,7 +17,7 @@ const NavBar = ({ loggedIn }) => (
         </div>
         {!loggedIn ? (
           <div className="register">
-            <NavLink to="/sign-up">Sign Up</NavLink>
+            <NavLink to="/register">Register</NavLink>
             <NavLink to="/login">Login</NavLink>
           </div>
         ) : (
@@ -49,13 +49,12 @@ const NavigationContainer = styled.div`
   display: flex;
   justify-content: space-between;
   .logo {
-      font-family: 'Julius Sans One', sans-serif;
-      font-size: 2rem;
-      @media (max-width: 500px) {
-        display: none;
-      }
-      // margin-left: 50px;
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 2rem;
+    @media (max-width: 500px) {
+      display: none;
     }
+  }
   nav {
     display: flex;
     justify-content: space-between;

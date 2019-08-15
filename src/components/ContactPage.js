@@ -44,7 +44,7 @@ const ContactForm = styled.form`
     font-size: 1.6rem;
     background:#3e3b4f;
     color: #BEBEBE;
-    margin: 0.5rem 0 1.5rem 0;
+    margin: 5px 0 10px 0;
   }
   button {
     width: 200px;
@@ -58,6 +58,7 @@ const ContactForm = styled.form`
     background: #E19870;
     &:hover {
       cursor: pointer;
+      opacity: 0.8;
     }
     @media (max-width: 500px) {
       width: 100%;
