@@ -29,7 +29,7 @@ const Login = ({ loggedIn, loginRequest }) => {
     <LoginWrapper>
       <div className="login">
         <form className="login-form">
-          <h2>Art Portolio</h2>
+          <h2>Aportfolio</h2>
           <label>Username</label>
           <input name="username" type="text" placeholder="Your Username..." />
           <label>Password<span>Forgot password?</span></label>
